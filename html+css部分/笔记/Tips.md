@@ -6,4 +6,24 @@
  ![图解](imgs/font复合样式图解.png) 
  
  
+## 关于背景background的复合样式
+*background复合样式写法是没有顺序要求的
+			但是，建议人为分类。
+			颜色 -> 图片 -> 重复 -> 位置(/大小 裁剪 基点) -> 滚动*
+			
+```css
+background: [background-color] [background-image] [background-repeat]
+            [background-attachment] [background-position] / [ background-size]
+            [background-origin] [background-clip];
+```
+实例:
 
+```css
+.example {
+  background: aquamarine url(img.png)
+              no-repeat
+              scroll
+              center center / 50%
+              content-box content-box;
+}
+```

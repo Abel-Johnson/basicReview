@@ -1,0 +1,38 @@
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#box{
+	width: 300px;
+	/*height: 417px;*/
+	border-top: 2px solid #11466c;
+}
+#head{
+	/*width: 298px;*/
+	height: 29px;
+	border-left: 1px solid #b7b7b7;
+	border-right: 1px solid #b7b7b7;
+	background: url(../img/head_bg.jpg) repeat-x;
+}
+#content{
+	/*width: 298px;*/
+	/*height: 386px;*/
+	border: 1px solid #b7b7b7;
+}
+#mail{
+	height: 57px;
+	background: url(../img/ico-mail.jpg) no-repeat 16px 25px;
+}
+#game{
+	height: 126px;
+	background:#f3f3f3 url(../img/ico-game.jpg) no-repeat 9px 51px;
+}
+#sns{
+	height: 76px;
+	background: url(../img/icon-sns.jpg) no-repeat 15px 25px;
+}
+#other{
+	height: 127px;
+	background: #f7f7f7 url(../img/icon-other.jpg) no-repeat 12px 49px;
+}

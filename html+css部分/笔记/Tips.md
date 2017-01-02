@@ -1,3 +1,11 @@
+## 一句话tips
+* 强制不换行: `white-space: nowrap`
+* 空格大小 =  **宋体** 字体下字体大小的一半
+
+
+
+
+
 ## 关于字体的复合样式
  > 必填项有: **font-size**和**font-family**,例如:`style="font: 20px '微软雅黑';"`
  ----

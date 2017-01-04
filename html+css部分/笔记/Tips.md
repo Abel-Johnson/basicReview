@@ -2,6 +2,9 @@
 * 强制不换行: `white-space: nowrap`
 * 空格大小 =  **宋体** 字体下字体大小的一半
 * dd,dl{margin: 0}
+* p, dt, h1~6 不要嵌套块级标签
+* 自定义光标cursor:   `cursor: url(xxx.cur),auto`第二个参数auto以防止路径找不到有备选方案
+* ie6 ie7 不支持块属性标签的inline-block;
 
 ## 之前印象笔记记过的html部分
 * 只有body有bgcolor属性：<body bgcolor="#E6E6FA">
@@ -197,3 +200,106 @@ background: [background-color] [background-image] [background-repeat]
 | gif/png-8  |    小图标  | 是   |否    |
 | jpeg |大图海报|否|否|
 | png-24|还原度最好|是|是
+
+
+## BFC(块级格式化上下文)
+#### 作用
+1. 包含浮动元素(清除浮动)
+2. 不被浮动覆盖
+3. 阻止父子元素的margin传递
+
+#### 触发条件
+1. float值不为none时(有浮动时)
+2. overflow的值不为visible时(如hidden,auto,scroll)
+3. display值为`table-cell`,`table-caption`,`inline-block`之一
+4. position值不为static或relative
+5. 加边框(会改变元素的大小,不推荐)
+
+## haslayout(IE下)
+#### 作用
+1. 包含浮动元素(清除浮动)
+2. 不被浮动覆盖
+3. 阻止父子元素的margin传递
+
+#### 触发条件
+zoom:1可以触发
+
+
+
+## h5常用标签
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<header>
+			页眉 
+			主要用于页面的头部的信息介绍，也可用于板块头部
+		</header>
+		<nav>
+			<a href="">链接1</a>
+			<a href="">链接2</a>
+		</nav>
+		<footer>页脚  页面的底部 或者 版块底部</footer>
+		<section>页面上的版块</section>
+		<article>用来在页面中表示一套结构完整且独立的内容部分</article>
+		<aside>元素标签可以包含与当前页面或主要内容相关的引用、侧边栏、广告、nav元素组，以及其他类似的有别与主要内容的部分</aside>
+		<time>时间</time>
+	</body>
+</html>
+```
+
+## 关于img标签
+等比缩放：1、只修改宽度2、只修改高度
+				
+* alt: 图片加载失败时显示的文字
+* title: 鼠标移到元素上提示的文字(图片加载失败时，没有alt属性，那么title也会充当alt的作用)
+* img被包裹时会出现缝隙
+	vertical-align: top;
+* 在IE6下img被a标签包裹时会出现蓝色边框
+	border:none
+	
+	
+## css选择器权重
+![图示](imgs/选择器权重.jpg)
+
+1. 第一等：代表内联样式，如: style=””，权值为1000。
+2. 第二等：代表ID选择器，如：#content，权值为100。
+3. 第三等：代表类，伪类和属性选择器，如.content，权值为10。
+4. 第四等：代表类型选择器和伪元素选择器，如div p，权值为1。
+5. 特殊的：通用选择器（*），子选择器（>）和相邻同胞选择器（+）并不在这四个等级中，所以他们的权值都为0。
+
+
+##  重置默认样式
+```css
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+dl,
+dd{
+	margin: 0;
+}
+ul, ol{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	color: #333;
+	text-decoration: none;
+}
+img{
+	vertical-align: top;
+	border: none;
+}
+```
+

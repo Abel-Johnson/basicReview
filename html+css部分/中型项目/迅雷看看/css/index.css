@@ -1,0 +1,157 @@
+body, h4, dl, dd{
+	margin: 0;
+}
+img{
+	vertical-align: top;
+	border: none;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+#box{
+	width: 970px;
+	margin: 50px auto;
+}
+#box .item, #box .last{
+	float: left;
+	width: 163px;
+	height: 418px;
+	margin-right: -1px;
+}
+#box .last{
+	width: 160px;
+}
+.item .head{
+	padding: 0 11px 0 10px;
+	height: 41px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	text-align: center;
+	line-height: 44px;
+	font-family: "黑体";
+	
+}
+.head h4{
+	height: 41px;
+}
+.item .content{
+	height: 376px;
+	border: 1px solid #ddd;
+	border-top: none;
+}
+#box .content{
+	padding: 0 11px 0 10px;
+	font-size: 14px;
+}
+.content .top_list{
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #d8d8d8;
+}
+.content .list_item{
+	margin-bottom: 6px;
+}
+.list_item .img_box{
+	float: left;
+	width: 136px;
+	height: 96px;
+	border: 1px solid #dee0dd;
+	padding: 1px;
+}
+.list_item .movie{
+	float: left;
+	width: 140px;
+	height: 24px;
+}
+.movie .movie_name{
+	float: left;
+	color: #3e3e3e;
+	line-height: 24px;
+}
+.movie .hd{
+	float: left;
+	color: #bababa;
+	font-size: 12px;
+	line-height: 28px;
+}
+.movie .ico{
+	float: right;
+	width: 8px;
+	height: 10px;
+	background: url(../img/ico.jpg) no-repeat;
+	margin-top: 7px;
+}
+.content .bottom_list{
+	padding-top: 12px;
+}
+.bottom_list .text_movie{
+	margin-bottom: 4px;
+}
+.text_movie dt{
+	height: 22px;
+	overflow: hidden;
+}
+.text_movie dt a{
+	color: #3e3e3e;
+	line-height: 22px;
+	float: left;
+}
+.text_movie dt span{
+	color: #a9a9a9;
+	font-size: 12px;
+	line-height: 26px;
+	float: left;
+}
+.text_movie dd{
+	line-height: 20px;
+	font-size: 12px;
+	color: #acacac;
+}
+.hot{
+	border-top: 3px solid #abe27d;
+}
+.hot h4{
+	color: #839f55;
+}
+.man{
+	border-top: 3px solid #e187c4;
+}
+.man h4{
+	color: #b83271;
+}
+.tv{
+	border-top: 3px solid #a6a6a6;
+}
+.tv h4{
+	color: #4c4c4c;
+}
+.tvb{
+	border-top: 3px solid #7ec0d8;
+}
+.tvb h4{
+	color: #2295ce;
+}
+.overseas{
+	border-top: 3px solid #e18787;
+}
+.overseas h4{
+	color: #d9323c;
+}
+.variety{
+	border-top: 3px solid #e5cc6f;
+}
+.variety h4{
+	color: #c08647;
+}
+.last .head, #box .last .content{
+	padding: 0 9px;
+}

@@ -1,0 +1,99 @@
+body, h4{
+	margin: 0;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color:#3c3c3c;
+}
+img{
+	border: none;
+	vertical-align: top;
+}
+#box{
+	width: 1189px;
+	height: 365px;
+	font-size: 0;
+}
+#box .item{
+	display: inline-block;
+	width: 169px;
+	height: 362px;
+	border: 1px solid #e8e8e8;
+	margin-right: -1px;
+	padding: 1px 14px 0;
+	font-size: 12px;
+	vertical-align: top;
+}
+.item h4{
+	font:bold 16px/40px "微软雅黑";
+	color: #3c3c3c;
+	display: inline-block;
+}
+.item .head img{
+	vertical-align: -2px;
+	margin-left: -2px;
+}
+.item .item_top{
+	width: 169px;
+	height: 150px;
+	background-color: #f5f5f5;
+	text-align: center;
+	line-height: 19px;
+}
+.item_top strong{
+	display: block;
+	color: #3c3c3c;
+	margin-top: 8px;
+}
+.item_top em{
+	display: block;
+	color: #9c9c9c;
+	font-style: normal;
+}
+.item .item_bottom{
+	width: 169px;
+	height: 159px;
+	margin-top: 13px;
+}
+.bottom_list{
+	word-spacing: 3px;
+}
+.bottom_list li{
+	width: 80px;
+	text-align: center;
+	line-height: 32px;
+	display: inline-block;
+}
+.bottom_list li strong{
+	font-weight: normal;
+}
+.item_bottom .item_tag{
+	height: 14px;
+	margin-top: 1px;
+	line-height: 16px;
+}
+.item_bottom .item_tag span{
+	display: inline-block;
+	height: 14px;
+	background: url(../img/ico-line.jpg) no-repeat right top;
+	padding-right: 6px;
+}
+.item_bottom .item_tag .noBg{
+	background: none;
+}
+.item_hot{
+	line-height: 38px;
+}
+.item_hot .hot{
+	color: #ff4400;
+	margin-right: 3px;
+}
+.item_hot a span{
+	color: #e1e1e1;
+	font-family: tahoma;
+}

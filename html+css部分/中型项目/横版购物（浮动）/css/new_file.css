@@ -1,0 +1,82 @@
+body,h4{margin: 0;}
+img{border: none;vertical-align: top;}
+a{text-decoration: none;color: #3c3c3c;}
+body{font-size: 12px; color: #3c3c3c;}
+ul{margin: 0;padding: 0;list-style: none;}
+
+
+#box{
+	width: 1189px;
+	height: 365px;
+	margin: 50px auto;
+}
+
+.item{
+	width: 169px;
+	height: 350px;
+	border: 1px solid #e8e8e8;
+	float: left;
+	margin-right: -1px;
+	padding: 13px 14px 0;
+}
+
+.head{
+	height: 16px;
+	margin-bottom: 12px;
+}
+.head h4{
+	float: left;
+	margin-right: 4px;
+	line-height: 16px;
+	font-size: 16px;
+}
+.head span{
+	float: left;
+	margin-top: 3px;
+}
+.content_top{
+	line-height: 19px;
+	padding-bottom: 4px;
+	background: #f5f5f5;
+	margin-bottom: 13px;
+}
+.content_top img{
+	margin-bottom: 8px;
+}
+.content_top strong,.content_top em{
+	display: block;
+	text-align: center;
+}
+.content_top em{
+	color: #9c9c9c;
+	font-style: normal;
+}
+
+.content_bottom{
+	height: 103px;
+}
+.content_bottom li{
+	text-align: center;
+	line-height: 32px;
+	width: 80px;
+}
+.content_bottom .fl{
+	float: left;
+}
+.content_bottom .fr{
+	float: right;
+}
+
+.content_tag{
+	height: 14px;
+	line-height: 16px;
+}
+.content_tag .tag_line{
+	line-height: 14px;
+	margin: 0 -3px 0 -4px;
+	color: #e1e1e1;
+	font-size: 14px;
+}
+.content_hot{
+	line-height: 40px;
+}

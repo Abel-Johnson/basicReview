@@ -1,0 +1,380 @@
+
+/*#box .main_nav .noMore a:hover,#box .main_nav .active a{
+	color: #0066cc;
+}*/
+
+
+#box .sub_menu{
+	width: 1140px;
+	border: 1px solid #bbbbbb;
+	border-top: none;
+	padding: 3px 19px 0;
+	line-height: 34px;
+	margin-bottom: 16px;
+}
+.sub_menu li{
+	float: left;
+	margin-right: 10px;
+	position: relative;
+}
+.sub_menu li a{
+	color:#333333;
+}
+.sub_menu li:hover a{
+	color: #0066cc;
+}
+#box .sub_menu .order{
+	float: right;
+	margin: 0;
+}
+#box .sub_menu .cheap{
+	top: -3px;
+	right: -3px;
+}
+
+#box .content{
+	margin-bottom: 17px;
+}
+.content_aside .search_form{
+	background-color: #2477e1;
+	margin-bottom: 15px;
+}
+.search_form .form_head .icon_search{
+	height: 18px;
+	background-position-x: -18px;
+	margin-top: 14px;
+}
+.form_body .search_type{
+	margin-right: 32px;
+}
+.form_body_main .label{
+	/*height: auto;*/
+}
+.form_body .search_type label{line-height: 30px;height: 30px;}
+.form_body .search_type input{
+	height: 30px;
+}
+.content_aside .search_form .form_body{padding-top: 10px;}
+.form_body_main .item{margin-bottom: 8px;}
+.form_body_main .label{color: #333333;}
+.form_body_main .aim .input{color: #000000;}
+.form_body_main .returnDate .label{color: #cccccc;}
+.form_body_main .highsearch a{color: #0066cc;line-height: 14px;}
+.form_body_main .highsearch{margin-bottom: 22px;}
+.submit input{
+	width: 120px;
+	height: 34px;
+	background: url(../img/straight——bg.png) no-repeat  0 -90px;
+	float: left;
+}
+.form_body_main .submit{margin-bottom: 9px;}
+.form_body_main .highsearch a{position: relative;}
+.form_body_main .highsearch .arrow{
+	background: url(../img/arrow.png) no-repeat 0 -49px;
+	width: 9px;
+	height: 5px;
+	position: absolute;
+	top:5px;
+	right: -12px;
+}
+.form_body_main .citySwitch{position: relative;}
+.form_body_main .citySwitch .switchIcon{
+	position: absolute;
+	top: 17px;
+	right: 19px;
+	width: 15px;
+	height: 45px;
+	background: url(../img/secondIndex_img/sprite_icons.png) no-repeat 0 -710px;
+}
+.form_body_main .input{width: 224px;}
+
+.content_aside .aside_active{margin-bottom: 5px;}
+
+.content_aside .choice_map{
+	margin-bottom: 2px;
+	padding: 6px 20px 8px 28px;
+	border: 1px solid #cacaca;
+	border-top: 4px solid #1476ff;
+	display: block;
+}
+.choice_map .icon_earth{
+	width: 50px;
+	height: 50px;
+	background: url(../img/airportimg/airport_sprite.png) no-repeat;
+	margin-right: 10px;
+}
+.choice_map .text_box{}
+.choice_map .text_box strong{
+	font-size: 17px;
+	line-height: 29px;
+	color: #5b657e;
+}
+.choice_map .text_box em{
+	line-height: 18px;
+	color: #888888;
+	font-style: normal;
+}
+.choice_map .icon_arrow{
+	width:32px;
+	height: 28px;
+	background: url(../img/airportimg/airport_sprite.png) no-repeat 0 -50px;
+	margin-top: 10px;
+}
+
+.content_aside .tool_box{
+	margin-bottom: 11px;}
+.content_aside .tool_box h3{
+	line-height: 45px;
+	font-size: 17px;
+}
+.content_aside .tool_box .all_module{}
+.tool_box .all_module .function{
+	text-align: center;
+	margin-right: -4px;
+}
+.all_module .function a{
+	float: left;
+	width: 92px;
+	padding: 16px 0 7px;
+	background: #e0f0ff;
+	margin:0 4px 3px 0;
+}
+.all_module .function .ltbr8{
+	border-top-left-radius:8px
+}
+.all_module .function .rtbr8{
+	border-top-right-radius:8px
+}
+.function a .tool_ico{
+	display: block;
+	width: 56px;
+	height: 40px;
+	background: url(../img/airportimg/airport_sprite.png) no-repeat 0 -78px;
+	margin: 0 auto;
+}
+.function .choose .tool_ico{background-position-y: -118px;}
+.function .ticket .tool_ico{background-position-y: -158px;}
+.function .time_sheet .tool_ico{background-position-y: -198px;}
+.function a .tool_text{
+	line-height: 30px;
+	font-size: 14px;
+	color: #3584d2;
+}
+.tool_box .all_module .query{
+	background: #e0f0ff;
+	padding: 7px 17px 7px 10px;
+	border-radius: 0 0 4px 4px;
+}
+.all_module .query h4{
+	color: #418ad5;
+	line-height: 38px;
+	font-weight: bold;
+	height: 38px;
+}
+.all_module .query .radio_item{
+	line-height: 32px;
+	height: 32px;
+	float: left;
+	margin-right: 26px;
+}
+.all_module .query .radio_item input,.all_module .query .radio_item  label{float: left;}
+.all_module .query .radio_item input{
+	height: 32px;
+	margin-right: 10px;
+}
+.all_module .query .submit_box{}
+.query .submit_box .input_box{
+	height: 24px;
+	width: 290px;
+	border: 1px solid #89b5e2;
+	border-top-color: #2a61a8;
+	border-radius: 12px 0 0 12px;
+	background: white;
+}
+.query .submit_box .btn_box{
+	width: 56px;
+	height: 28px;
+	border: 1px solid #2e79da;
+	border-radius: 0 12px 12px 0;
+	background: #4395e9;
+	color: white;
+	line-height: 26px;
+	margin-top: -2px;
+}
+
+.content_aside .reason_box{margin-bottom: 10px;}
+.content_aside .reason_box h3{line-height: 46px;color: #333374;font-weight: normal;font-size: 18px;}
+.content_aside .reason_box .reason_wrap{
+	background: #f4fcff;
+	border: 1px solid #badeff;
+	padding: 20px 12px 3px;
+	border-radius: 4px;
+}
+.reason_wrap .reason_item{margin-bottom: 9px;}
+.reason_wrap .reason_item .serve_icon{
+	background: url(../img/airportimg/airport_sprite.png) no-repeat 0 -238px;
+	width: 42px;
+	height: 41px;
+	float: left;
+	margin-right: 8px;
+}
+.reason_wrap .price_part .serve_icon{
+	background-position-x: -42px;
+}
+.reason_wrap .reason_item .serve_text{
+	float: left;
+}
+.reason_item .serve_text strong{
+	font-size: 21px;
+	line-height: 21px;
+	color: #ff6700;
+}
+.reason_item .serve_text em{
+	font-size: 16px;
+	line-height: 30px;
+	color: #3d82e4;
+	font-style: normal;
+}
+
+.content_aside .claim{}
+.content_aside .claim h3{
+	font-size: 17px;
+	color: #333333;
+	line-height: 51px;
+	font-weight: normal;
+}
+.content_aside .claim ul{
+	line-height: 22px;
+}
+.claim ul a{
+	color: #999999;
+}
+.claim ul .more{
+	color: #0053aa;
+}
+.content_main .main_banner{
+	margin-bottom: 13px;
+}
+.content_main .cheap_area{
+	margin-bottom: 5px;
+}
+.content_main .cheap_area h3{
+	font-size: 17px;
+	line-height: 37px;
+	color: #333333;
+	border-bottom: 1px solid #999999;
+	font-weight: normal;
+	margin-bottom: 8px;
+}
+.content_main .cheap_area .area_body{position: relative;}
+.cheap_area .area_body .arrow{
+	background: url(../img/airportimg/airport_sprite.png) 0 -279px;
+	position: absolute;
+	top: 27px;
+	width: 17px;
+	height: 28px;
+}
+.cheap_area .area_body .scroll_left{
+	left: 0;
+}
+.cheap_area .area_body .scroll_right{
+	right: 0;
+	background-position-x: -17px;
+}
+.cheap_area .area_body .area_content{padding: 0 55px;}
+.area_body .area_content dl{
+	float: left;
+	margin-right: 55px;
+	width: 180px;
+}
+.area_content a{color: #0066cc;}
+.area_content dt{
+	line-height: 20px;
+	font-size: 14px;
+}
+.area_content dt .co_ico{
+	background: url(../img/airportimg/airport_sprite.png) no-repeat 0 -307px;
+	width: 16px;
+	height: 20px;
+	display: inline-block;
+          *display: inline;
+           *zoom: 1;
+
+	vertical-align: top;
+}
+/*.area_content dt a{display: inline-block;margin-left: 6px;}*/
+.area_content dd{
+	line-height: 24px;
+	color: #A3A3A3;
+	overflow: hidden;
+	zoom: 1;
+}
+.area_content dd time,.area_content dd a{float: left;margin-right: 6px;}
+.area_content dd .price{
+	font-weight: bold;
+	color: #bb0000;
+}
+
+.content_main .other{margin-bottom: 20px;}
+.other nav{border-bottom: 3px solid #3983e5;margin-bottom: 10px;}
+.other nav a{
+	float: left;
+	font-size: 16px;
+	line-height: 40px;
+	color: #333;
+	padding: 0 10px;
+	margin-right: 10px;
+	font-weight: bold;
+	position: relative;
+}
+.other nav a .arrow{
+	width: 13px;
+	height: 8px;
+	position: absolute;
+	bottom: -3px;
+	left: 50%;
+	margin-left: -6.5px;
+	background: url(../img/airportimg/airport_sprite.png) no-repeat 0 -327px;
+	overflow: hidden;
+	display: none;
+}
+.other nav a:hover,.other nav .active{
+	color: #2f66cc;
+}
+.other nav a:hover .arrow,.other nav .active .arrow{display:inline;}
+.other .ticket_li{background: #f1f1f1;padding: 8px;padding-bottom:3px;margin-right: -1px;}
+.other .ticket_li .city_pic{border-bottom: 6px dotted #b3b3b3;display: block;}
+.other .ticket_li li{width: 190px;float: left;margin:0 1px 5px 0;}
+.other .ticket_li .tag{background:#ff7d2d;color: white;line-height: 18px;display: inline-block;padding: 0 5px;margin-left: -7px;}
+.other .ticket_li .text_box{background: white;padding: 7px 13px 18px 7px;border-bottom: 1px solid #d7d7d7;}
+.ticket_li .text_box .flight_line{
+	display: block;
+	line-height: 25px;
+	font-size: 15px;
+	color: #333;
+}
+.ticket_li .text_box time{
+	font-size: 14px;
+	line-height: 20px;
+	color: #999999;
+	font-weight: bold;
+	display: block;
+}
+.ticket_li .text_box .price_box{}
+.text_box .price_box .cost{color: #9ea8ae;line-height: 17px;background: #f0f3f4;border: 1px solid #c5cfd3;padding: 0 2px;margin-right: 14px;}
+.text_box .price_box .price{color: #bb0000;line-height: 19px;}
+.price_box .price .yuan{line-height:12px;margin-top: 6px;}
+.price_box .price .num{font-size: 18px;}
+.content_main .banner_commend{margin-right: -2px;}
+.banner_commend a{float: left; margin-right: 1px;}
+
+
+#box .foot_nav{line-height: 18px;margin-bottom: 45px;}
+.foot_nav .fn_wrap{border: 1px solid #dedede;padding: 5px 13px 10px 10px;}
+.foot_nav a{color: #999;white-space: nowrap;}
+.foot_nav h3{font-size: 12px;line-height: 34px;font-weight: normal;color: #999999;}
+.foot_nav dl{margin:0 0 5px 62px;}
+.foot_nav dt,.foot_nav dd{float: left;}
+.foot_nav dt{margin-right: 10px;font-weight: bolder;color: #999999;margin-left: -62px;display: inline;position: relative;}
+.foot_nav dd{margin-right: 11px;}
+.foot_nav .inTimeStatus dd{width: 320px;margin-right: 10px;}

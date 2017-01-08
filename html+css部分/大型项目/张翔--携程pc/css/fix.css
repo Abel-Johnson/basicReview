@@ -1,0 +1,89 @@
+.clearfix{zoom: 1;}
+img{border: none;}
+input{vertical-align: top;}
+
+
+
+/*.nav_bar .server a{float: left;}*/
+.head .head_plus,.head .search_box .text_input,.head .search_box,.head_plus .tel{display: inline;}
+.head_plus  .language li{vertical-align: top;}
+.head_plus  .language li .arrow,.head_plus .tel .arrow_link,#box .main_nav .nav_item .arrow{overflow: hidden;}
+#box .main_nav .nav_item .arrow,#box .main_nav .line{display: inline;}
+/*解决加负margin加宽元素，IE不认导致背景没地方显示问题*/
+.form_box .form_tag a{position: relative;}
+
+.top_main .search_box .side_nav{height: 300px;}
+
+/*.banner_box .coms a{display: inline;}*/
+.banner_box .banner .dot_list a{overflow: hidden;}
+/*解决父级margin取负不生效*/
+.banner_box .banner .dot_list,.have_price .product_li{overflow: hidden;zoom: 1;}
+/*.have_price .product_li{position: relative;}*/
+.content_wrap section{width: 100%;overflow: hidden;}
+.banner_box .banner{zoom: 1;}
+.product_li .item .info_box .bg, .text_box .bg{filter: alpha(opacity=50);}
+
+.content_wrap .product_li{overflow: hidden;}
+#box .login .mine .arrow{overflow: hidden;}
+
+.common_content .wrap_main .help_nav{height: 390px;}
+.have_price .wrap_main .help_nav{height: 220px;}
+.content_all{overflow: hidden;}
+
+.items_module a{
+	overflow: hidden;
+}
+.items_module .iconOfitem{margin-right: 5px;}
+.service .wrap_main .service_item
+.cooperation .co_partner{width: 930px;}
+
+.co_partner .partner_li .partner_item{/*width: 153px;*/background: white;}
+.entrance .entrance_index dt{display: inline;}
+.foot .honer_wrap a{margin: 0 5px;}
+.content_bottom .entrance{
+	width: 1148px;
+	overflow: hidden;
+}
+.content_bottom .entrance .entrance_index{
+	overflow: hidden;
+	width: 1068px;
+}
+
+.side_bar,.content .content_side_bar{
+	position: absolute; 
+	bottom: auto; 
+  top:expression(eval(document.documentElement.scrollTop));
+}
+/*.content_side_bar{
+	position: absolute; 
+	bottom: auto; 
+	top: expression(eval(document.documentElement.scrollTop));
+	top:100px;
+}*/
+.head_plus .language .arrow{overflow: hidden;}
+/*下面是二级页面的fix*/
+.form_body_head{
+	padding-left: 39px;
+}
+.form_body_head .search_type{
+	margin-right: 32px;
+}
+ .search_type input{
+ 	margin-right: 0;
+ }
+ .form_body_main,.form_body_main div,.content_aside .search_form,.content_aside .magazine{zoom: 1;}
+  /*solve the least height of element is 19px in the environment of IE6*/
+.discover_btn .enter_icon{overflow: hidden;vertical-align: 3px;}
+.search_form .form_head .icon_search{overflow: hidden;}
+.city_choice a{
+	background-color: #9c978d;
+}
+.content_main{overflow: hidden;}
+.content_main .more_cheap{position: relative;}
+.diamond{overflow: hidden;}
+
+#box .foot{zoom: 1;}
+#box .hotelNav{overflow: hidden;}
+.form_body_main .highsearch a{zoom: 1;}
+.area_content dt a{margin-left: 6px;}
+/*.banner_commend a{margin: 0;}*/

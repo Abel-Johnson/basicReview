@@ -1,0 +1,85 @@
+body,h3,h4{margin: 0;}
+ul{margin: 0;padding: 0;list-style: none;}
+img{border: none;vertical-align: top;}
+.clearfix:after{content: "";display: block;clear: both;}
+.fl{float: left;}
+.fr{float: right;}
+body{font: 12px "arial";}
+
+a{text-decoration: none;}
+
+
+
+body{
+	font-size: 12px;
+}
+#box{
+	width: 228px;
+	height: 461px;
+	border: 1px solid #d0d1cc;
+	border-right-color: #c4c3be;
+	border-bottom-color: #c4c3be;
+	margin: 50px auto;
+}
+#box .head{
+	line-height: 38px;
+	height: 37px;
+	margin: 1px 0;
+	background-color: #f3f3f3;
+}
+.head .title{
+	padding-left: 14px;
+	color: #393939;
+}
+.head .change{
+	color:#999999 ;
+	padding-right: 14px;
+	line-height: 40px;
+}
+
+.content{
+		border-top: 1px solid #dddddd;
+		padding: 12px 14px 0;
+}
+.content .height90{height: 90px;}
+.height90 .id{background: url(../img/icon_vip.png) no-repeat 38px 5px;}
+.content li{
+	height: 87px;
+	border-bottom: 1px dashed #cecece;
+	margin-bottom:14px;
+}
+.content .noBorder{
+	border: none;
+	margin: 0;
+}
+.content aside{
+	margin-right: 5px;
+}
+aside .btn{
+	margin-top: 7px;
+	display: block;
+	width: 43px;
+	height: 27px;
+	background: url(../img/green_btn.png) no-repeat;
+	line-height: 26px;
+	color: #799a17;
+	text-indent: 8px;
+}
+
+.content article{
+	line-height: 18px;
+	width: 152px;
+}
+article .id{
+	line-height: 20px;
+	margin-bottom: 4px;
+	color: 333333;
+	font-weight: normal;
+}
+article .info{
+	color: #5f80a9;
+}
+article .game{
+	display: block;
+	color: #999999;
+}

@@ -1,0 +1,229 @@
+body,p{margin: 0;}
+a{text-decoration: none;color: #003399;}
+img{vertical-align: top;border: none;}
+.clearfix:after{content: "";display: block;clear:both;}
+input{border: 1px solid #ababab;
+padding: 0;border-radius: 3px;}
+.fl{float: left;}
+.fr{float: right;}
+
+body{
+	background: #f9f9f9;
+	font-size:14px;
+}
+#box{
+	width: 960px;
+	margin: 50px auto;
+}
+#box .head{
+	height: 27px;
+	margin-bottom: 24px;
+}
+#box .head .head_plus{
+	line-height: 28px;
+	height: 27px;
+	color: #a899a8;
+}
+#box .head .head_logo a{
+	text-indent: -9999px;
+	float: left;
+}
+#box .head .mail_163{
+	width: 107px;
+	height: 24px;
+	background: url(../img/logo_163.png) no-repeat;
+	margin-top: 3px;
+	margin-right: 23px;
+}
+#box .head .mail_126{
+	width: 109px;
+	height: 23px;
+	margin-top: 4px;
+	background: url(../img/logo_126.png) no-repeat;
+	margin-right: 21px;
+}
+#box .head .mail_yeah{
+	width: 115px;
+	height: 26px;
+	background: url(../img/logo_yeah.png) no-repeat;
+	margin-top: 1px;
+	margin-right: 17px;
+}
+#box .head .mail_subtitle{
+	width:239px;
+	height: 26px;
+	padding-left: 12px;
+	border-left:1px solid #cccccc;
+	background: url(../img/logo_subtitle.png) no-repeat 12px 2px;
+}
+
+
+#box .content{
+	height: 586px;
+}
+.content_tip{
+	line-height: 38px;
+	height: 38px;
+	padding-left: 21px;
+	background: url(../img/bg_bar.png) repeat-x;
+	color:#ffffff;
+	border-radius: 4px 4px 0 0;
+}
+.content_body{
+	height: 547px;
+	border: 1px solid #e0e0e0;
+	border-top: none;
+	background-color: white;
+}
+.content_body .main{
+	width: 508px;
+	border-right:1px solid #e0e0e0;
+	height: 497px;
+	float: left;
+	padding: 50px 67px 0;
+}
+.main .btn_group{
+	padding-left: 78px;
+	margin-bottom: 34px;
+}
+.main .btn{
+	width: 168px;
+	height: 34px;
+	border: 1px solid #b5b5b5;
+	background: url(../img/white_btn_bg.png) repeat-x;
+	border-radius:6px;
+	padding: 0;
+	line-height: 34px;
+	float: left;
+}
+.main .btn_l{/*border-right: none;*/border-radius: 6px 0 0 6px;margin-right: -1px;}
+.main .btn_r{/*border-left: none;*/border-radius: 0 6px 6px 0;}
+.main .btn:hover/*,.main .btn_l*/{
+	background: url(../img/blue_btn_bg.png) repeat-x;
+	border: 1px solid #0e529a;
+	font-weight: bolder;
+	color: #ffffff;
+	float: left;
+}
+.main .mail{
+	margin-bottom: 12px;
+}
+.main p{
+	line-height: 34px;
+	font-size: 12px;
+	color: #999999;
+	padding-left: 78px;
+}
+.main .text{
+	height: 25px;
+	/*width: 210px;*/
+	text-indent: 5px;
+	color: #999999;
+	border-color: #ababab;
+	line-height: 26px;
+}
+.main .address{
+	width: 210px;
+}
+
+.main .star{color: #d05f5f;}
+.main .at{color: #555555;font-weight: bold;}
+
+.main select{width: 98px;height: 25px;font-weight: bold;color: #555555;}
+.main .password{
+	margin-bottom: 12px;
+	/*text-indent: 2em;*/
+}
+.password .text{
+	width: 332px;
+}
+.main .confirm_pw{
+	text-indent: 0;
+	margin-bottom: 22px;
+}
+
+.main .security{
+	/*text-indent: 1em;*/
+}
+
+.security .text{
+	width: 206px;
+}
+.security .code_box{
+	width: 286px;
+	margin-right: 4px;
+}
+.code_box p{
+	line-height: 56px;
+}
+.security .img_box{
+	width: 122px;
+	margin-top: -12px;
+	text-indent: 0;
+	text-align: center;
+}
+.img_box img{
+	border: 1px solid #e7e7e7;
+}
+
+.img_box .tip{
+	line-height: 30px;
+	font-size: 12px;
+	color: #003399;
+}
+
+.main .clause{
+	line-height: 18px;
+	color: #999999;
+	font-size: 12px;
+	padding-left: 78px;
+	margin-bottom: 17px;
+}
+.main .regist{
+	width: 118px;
+	height: 35px;
+	border: 1px solid #2f7d1b;
+	background: url(../img/regist_btn_bg.png) repeat-x;
+	color: #FFFFFF;
+	margin-left:78px ;
+	border-radius: 3px;
+}
+.main .title{display:inline-block;width: 70px;text-align: right;margin-right: 8px;}
+
+.content_body .aside{
+	height: 100%;
+	width: 315px;
+	background-color: #f5f5f5;
+	float: right;
+	position: relative;
+}
+.aside img{
+	position:absolute;
+	top: 104px;
+	left: 52px;
+}
+.aside a{
+	position: absolute;
+	top: 315px;
+	left: 224px;
+	color: #5283ba;
+	line-height: 26px;
+	width: 56px;
+	height: 25px;
+	background-color: #c5d6e7;
+	border-radius: 2px;
+	text-align: center;
+}
+
+
+
+#box .foot{
+	color: #999999;
+	font-size: 12px;
+	line-height:42px;
+	text-align: center;
+}
+#box .foot a,#box .foot span{
+	color: #999999;
+	margin-right: 2px;
+}

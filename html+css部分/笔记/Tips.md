@@ -5,6 +5,7 @@
 * p, dt, h1~6 不要嵌套块级标签
 * 自定义光标cursor:   `cursor: url(xxx.cur),auto`第二个参数auto以防止路径找不到有备选方案
 * ie6 ie7 不支持块属性标签的inline-block;
+* less变量声明格式: @val: 100px;
 
 ## 之前印象笔记记过的html部分
 * 只有body有bgcolor属性：<body bgcolor="#E6E6FA">
@@ -125,6 +126,26 @@ li{list-style-image:url();
     - Arial≈Helvatica
 - css3里，background-size：xxx，指定背景放缩
 
+	> 	background-size:x y  
+	> 			background-size:100% 100%  
+	> 			cover 放大	一定铺满整个容器，但是图片不一定显示完整
+	> 			contain 缩小  不一定会铺满整个容器，但会保证图片比例正常并显示完整
+	  
+	  
+	css3里,background-origin ：指定背景平铺起点  
+> background-origin ： border | padding | content 
+> 		border-box： 从border区域开始显示背景。   
+> 		padding-box： 从padding区域开始显示背景。   
+> 		content-box： 从content区域开始显示背景  
+> 		平铺是铺满整个容器，包括border  
+> 		不平铺是从border以里开始显示  
+
+
+ 	css3里,background-clip: 指定背景裁剪规则
+> 	border-box： 从border区域向外裁剪背景。  
+> 	padding-box： 从padding区域向外裁剪背景。  
+> 	content-box： 从content区域向外裁剪背景。  
+> 	no-clip
 - 各种对齐：
 
     - 表格内文本对齐：text-align/vertical-align
@@ -302,4 +323,105 @@ img{
 	border: none;
 }
 ```
+
+## 盒阴影
+`box-shadow:[inset] x y blur [spread] color`  
+ 	**参数:**
+ 	
+* 	inset：投影方式
+	* inset：内投影(不给：外投影)
+* 	x、y：阴影偏移
+* 	blur：模糊半径
+* 	spread：扩展阴影半径(先扩展原有形状，再开始画阴影)
+* 	color
+
+## 关于表格\<table>标签
+
+```html
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			table 表格
+			thead 表格头
+			tbody 表格主体
+			tr 表格行
+			th 元素定义表头
+			td 元素定义表格单元
+			
+			<table border="1">
+				
+			table{border-collapse:collapse;} 单元格间隙合并
+			th,td{padding:0;}重置单元格默认填充
+
+			colspan  属性规定单元格可横跨的列数。
+			<td colspan="2"></td>
+			
+			rowspan  属性规定单元格可横跨的行数。
+			<td rowspan="2"></td>
+		-->
+		<style>
+			table,th,td{
+				border: 1px solid black;
+			}
+			table{
+				border-collapse:collapse;
+			}
+			th,td{
+				padding: 0;
+			}
+			th{
+				width: 200px;
+				height: 50px;
+				background-color: pink;
+			}
+			td{
+				height: 40px;
+				text-align: center;
+				background-color: palegreen;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<th>星期一</th>
+				<th>星期二</th>
+				<th>星期三</th>
+				<th colspan="2">星期四&五</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="3">CSS</td>
+					<td>HTML</td>
+					<td>HTML</td>
+					<td colspan="2">CSS&HTML</td>
+				</tr>
+				<tr>
+					<td>HTML</td>
+					<td>HTML</td>
+					<td>CSS</td>
+					<td>HTML</td>
+				</tr>
+				<tr>
+					<td>HTML</td>
+					<td>HTML</td>
+					<td>CSS</td>
+					<td>HTML</td>
+				</tr>
+				<tr style="height: 10px;"></tr>
+				<tr>
+					<td>CSS</td>
+					<td>HTML</td>
+					<td>HTML</td>
+					<td>CSS</td>
+					<td>HTML</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+```
+
 

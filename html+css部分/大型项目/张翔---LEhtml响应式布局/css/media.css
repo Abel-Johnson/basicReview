@@ -1,0 +1,31 @@
+@media only screen and (min-width: 951px) and (max-width: 1250px){
+	.wrap{width:880px}
+	.commend_module .commend_item_s,
+	.content_top .callBorder,
+	.content_top .page_btns,.top_bar .nav a
+	{display: none;}
+	.top_bar .nav .Open{display: inline;}
+	.commend_module .commend_item .moduleBody{
+		justify-content: flex-start;
+		background: white;
+	}
+	.company .moduleBody li:nth-child(6n) {
+    margin-right: 0px;
+	}
+	.company .moduleBody li{
+		margin-right: 18px;
+	}
+}
+
+@media only screen and (max-width: 950px) {
+	.wrap{width: 580px;}
+	
+	.commend_module .commend_item_s,
+	.content_top .callBorder,
+	.content_top .page_btns,.top_bar .nav a
+	{display: none;}
+	.top_bar .nav .Open{display: inline;}
+	.foot_link a{margin: 0;}
+	.foot .foot_link{justify-content: space-between;}
+	.foot_link .safe{top: 28px;}
+}

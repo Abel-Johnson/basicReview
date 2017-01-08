@@ -1,0 +1,86 @@
+/*body{margin:0;}*/
+h3{margin: 0;}
+img{border: none; vertical-align: top;}
+a{text-decoration: none;color: #3c3c3c;}
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+body{font-size: 0px;}
+#box{
+	width:1187px;
+	height: 363px;
+	border: 1px solid #e8e8e8;
+}
+.item{
+	display: inline-block;
+	vertical-align: top;
+	width: 169px;
+	height: 353px;
+	border-right:  1px solid #e8e8e8;
+	padding:1px 14px 9px;
+	font-size: 12px;
+}
+.noBorder{border:none}
+
+.head{}
+.head h3{
+	font: bold 16px/40px "微软雅黑";
+	display: inline-block;
+	margin-right: -2px;
+	
+}
+.head span{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 15px;
+}
+
+.content_top{
+	height: 150px;
+	background: #f5f5f5;
+	text-align: center;
+	margin-bottom: 13px;
+}
+.content_top a{display:block}
+.content_top strong{
+	color: #3c3c3c;
+	display: block;
+	margin-top: 8px;
+	line-height: 19px;
+}
+.content_top em{
+	display: block;
+	color: #9c9c9c;
+	font-style: normal;
+	line-height: 19px;
+}
+
+.bottom_pic{text-align: center;word-spacing: 3px;}
+.bottom_pic li{display: inline-block;vertical-align: top;width: 80px;}
+/*问老师审查元素时虚字是什么意思
+ 意思是不生效*/
+.bottom_pic img{
+	margin-bottom: 4px;
+}
+.bottom_pic span{
+	line-height: 25px;
+}
+
+.item_tag{line-height: 14px;height: 25px;}
+.tag_name{
+	line-height: 25px;
+}
+.tag_line{
+	font-size: 14px;
+	color: #e1e1e1;
+	margin: 0 -3px 0 -4px;
+}
+.item_hot{
+	line-height: 26px;
+	font-family: "tahoma";
+}
+.red{color: #ff4400;}
+.bracket{color: #e6e6e6;}

@@ -1,0 +1,18 @@
+.wrap{
+	width: 1180px;
+	/*width: 87.4722%;*/
+	margin: 0 auto;
+}
+.fl{float: left;}
+.fr{float: right;}
+.clearfix{
+	*zoom:1;
+}
+.clearfix:after{content: "";display: block;clear: both;}
+body{font-family: 'microsoft yahei', Arial, sans-serif;}
+sub{vertical-align: 5px;font-size: 12px;}
+sup{vertical-align: text-bottom;}
+.vb{vertical-align: text-bottom;}
+.white{color: white;}
+.noBorder{border: none !important;}
+.noMargin{margin: 0 !important;}

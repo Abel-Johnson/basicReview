@@ -1,0 +1,79 @@
+body, h3{
+	margin: 0;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #1a1a1a;
+}
+img{
+	border: none;
+	vertical-align: top;
+}
+
+body{
+	font-size: 12px;
+}
+#box{
+	width: 640px;
+	height: 431px;
+	border: 1px solid #999;
+	padding: 16px 19px 0;
+	margin: 50px auto;
+}
+#box .head{
+	height: 26px;
+	margin-bottom: 20px;
+}
+.head .title{
+	float: left;
+	width: 86px;
+	height: 26px;
+	margin-right: 14px;
+}
+.head .title a{
+	display: inline-block;
+	width: 86px;
+	height: 26px;
+	background: url(../img/title.jpg) no-repeat;
+	text-indent: -9999px;
+}
+.head .tv_type{
+	float: left;
+	padding-top: 10px;
+	word-spacing: 12px;
+}
+.tv_type a{
+	font: 14px "微软雅黑";
+}
+.head .more{
+	float: right;
+	margin-right: 5px;
+	font-family: "微软雅黑";
+}
+.more{
+	display: inline-block;
+	height: 12px;
+	padding-right: 13px;
+	margin-top: 13px;
+	line-height: 12px;
+	background: url(../img/ico-more.jpg) no-repeat right bottom;
+}
+.content{
+	height: 385px;
+	margin-right: -20px;
+}
+.content li{
+	float: left;
+	width: 112px;
+	line-height: 32px;
+	margin-right: 20px;
+	margin-bottom: 9px;
+}
+.content .noMargin{
+	margin-right: 0;
+}

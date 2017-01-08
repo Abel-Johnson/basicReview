@@ -1,0 +1,95 @@
+body{margin: 0;}
+ul{margin: 0;padding: 0;list-style: none;}
+a{text-decoration: none;}
+img{border: none;vertical-align: top;}
+.clearfix:after{content: "";display: block;clear: both;}
+.fl{	float: left;}
+.fr{float: right;}
+
+
+#box{
+	width: 970px;
+	margin: 50px auto;
+}
+.item{
+	width: 140px;
+	height: 416px;
+	border: 1px solid #dddddd;
+	border-top: 3px solid #abe27d;
+	float: left;
+	margin-left: -1px;
+	padding: 1px 11px 0 10px;
+}
+
+.green{border-top-color:#addf7e ;}
+.green .head a{color: #87a54f;}
+
+.pink{border-top-color:#e187c4 ;}
+ .pink .head a{color: #bc4e8d;}
+ 
+.gray{border-top-color:#a6a6a6 ;}
+ .gray .head a{color: #4b4b4b;}
+ 
+.blue{border-top-color:#7dc0db ;}
+ .blue .head a{color: #5091c9;}
+ 
+.red{border-top-color:#e18787 ;}
+.red .head a{color: #c83346;}
+
+.orange{border-top-color:#e5cc6f ;padding: 1px 9px 0;}
+.orange .head a{color: #b78c61;}
+
+
+
+.item .head{	
+	text-align: center;
+	line-height: 40px;
+	font-weight: bold;
+	font-family: "arial","微软雅黑";
+}
+
+.content{
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #dcdcdc;
+}
+.content li{
+	margin-bottom: 7px;
+	position: relative;
+}
+.content .detail{
+	position: absolute;top: 107px;right: 0;
+}
+.content .poster{
+	padding: 1px;
+	border: 1px solid #dedede;
+}
+.content .poster:hover{
+	border-color: white;
+}
+
+.movie_info{
+	display: block;
+}
+.mov_name{
+	font-size: 13px;
+	line-height: 23px;
+	color: #3e3e3e;
+}
+.mov_quality{
+	font-size: 10px;
+	line-height: 20px;
+	margin-top: 3px;
+	color: #b8b8b8;
+}
+.item .more{
+	padding-top: 11px;
+}
+.more li{
+	margin-bottom: 5px;
+	line-height: 16px;
+}
+.more .mov_subtitle{
+	color: #ababab;
+	font-size: 11px;
+	font-style: normal;
+}

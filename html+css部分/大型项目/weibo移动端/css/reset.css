@@ -1,0 +1,54 @@
+a,
+input,
+button{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	/*清除按下默认阴影*/
+}
+input,
+button{
+	-webkit-appearance: none;
+	border-radius: 0;
+	/*ios自带圆角*/
+}
+body{
+	margin: 0;
+	-webkit-user-select: none;
+	/*禁止选中元素*/
+}
+body *{
+	-webkit-user-select: none;
+	font-family: helvetica;
+}
+body{
+	-webkit-text-size-adjust: 100%;
+	/*禁止用户横竖屏转换字号的自动调节*/
+}
+a{
+	text-decoration: none;
+}
+h1,h2,p,dl,dd,h3{
+	margin: 0;
+}
+input{
+	padding: 0;
+	border: none;
+	outline: none;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+img{
+	vertical-align: top;
+}
+.clearfix:after{
+	display: block;
+	clear: both;
+	content: "";
+}
+body,
+html{
+	height: 100%;
+	overflow: hidden;
+}

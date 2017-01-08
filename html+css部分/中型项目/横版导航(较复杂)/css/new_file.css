@@ -1,0 +1,79 @@
+body,dl,dd{margin: 0;}
+a{text-decoration: none; color: #444444;}
+body{font-size: 12px;}
+.clearfix:after{content:"";display: block;clear: both;}
+.fl{float: left;}
+.fr{float: right;}
+.lh32{line-height: 32px;}
+
+
+
+
+#nav{
+	width: 968px;
+	padding: 7px 10px 0;
+	background-color: #f3f3f3;
+	border: 1px solid #ffffff;
+	margin: 50px auto;
+}
+/**/
+.normal{
+	border-bottom: 1px solid #d5dbe6;
+	height: 32px;
+}
+.normal dt,.normal dd{
+	line-height: 18px;
+	float: left;
+	margin-top: 6px;
+	
+}
+.normal dl a{
+	display:block;
+	padding: 0 5px;
+	background-color: #f3f3f3;
+	margin-right: 10px;
+}
+dd .num{
+	color: #878787;
+}
+.normal dl a:hover,.normal dl a:hover .num ,.normal dl .active{
+	background: #0066cc;
+	color: #FFFFFF;
+}
+.normal .all{
+	margin-right: 16px;
+}
+dl .title{
+	font-weight: bold;
+	color: #3f3f3f;
+	margin-right: 29px;
+}
+.more a{
+	float: right;
+	padding-right: 18px;
+	line-height: 14px;
+	margin-top: 8px;
+	background: url(../img/icon_more.png) no-repeat right center;
+}
+.specific{
+	height: 34px;
+	margin-bottom: 9px;
+}
+.specific dt,.specific dd{
+	float: left;
+	line-height: 22px;
+	margin-top: 6px;
+}
+.specific .btn_r{
+	float: left;
+	color: #FFFFFF;
+	padding: 0 18px 0 12px;
+	background: url(../img/btn_bg.png) no-repeat right -22px;
+}
+.specific .btn_m{
+	float: left;
+	background: url(../img/btn_bg.png) repeat-x left -44px;
+	margin-right: 10px;}
+.specific .btn_l{
+	float: left;
+	background: url(../img/btn_bg.png) no-repeat}

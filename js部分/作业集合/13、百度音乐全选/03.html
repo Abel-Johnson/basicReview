@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#box{
+			border: 5px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+	</div>
+	<input type="checkbox" id="checkAll" />全选
+	<script>
+		var inps = document.querySelectorAll("#box input");
+		var checkAll = document.getElementById("checkAll");
+		var num = 0;
+		
+		for (var i = 0; i < inps.length; i++) {
+			inps[i].onclick = function(){
+				if(this.checked){
+					num++;
+				}else{
+					num--;
+				}
+				if(num == inps.length){
+					checkAll.checked = true;
+				}else{
+					checkAll.checked = false;
+				}
+			}
+		}
+		checkAll.onclick = function(){
+//			alert(this.checked)
+			for (var i = 0; i < inps.length; i++) {
+				if(this.checked){
+					inps[i].checked = true;
+					num = inps.length;
+				}else{
+					inps[i].checked = false;
+					num = 0;
+				}
+			}
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<ul id="list">
+		<li>
+			111
+			<input type="button" value="上移" />
+			<input type="button" value="下移" />
+		</li>
+		<li>
+			222
+			<input type="button" value="上移" />
+			<input type="button" value="下移" />
+		</li>
+		<li>
+			333
+			<input type="button" value="上移" />
+			<input type="button" value="下移" />
+		</li>
+		<li>
+			444
+			<input type="button" value="上移" />
+			<input type="button" value="下移" />
+		</li>
+	</ul>
+	<script>
+		var list = document.getElementById("list");
+		var inp = list.getElementsByTagName("input");
+		var lis = list.getElementsByTagName("li");
+	for (var i = 0; i < inp.length; i++) {
+		if(i%2 == 1){
+			inp[i].onclick = function(){//下移
+				if(!this.parentNode.nextElementSibling){
+					return
+				}
+				list.insertBefore(this.parentNode.nextElementSibling,this.parentNode);
+			}
+		}else{
+			inp[i].onclick = function(){//上移
+				if(!this.parentNode.previousElementSibling){
+					return;
+				}
+				list.insertBefore(this.parentNode,this.parentNode.previousElementSibling );
+			}
+			
+		}
+	}
+//			inp[i].onclick = function(){
+////				console.log( this.parentNode,this.parentNode.previousElementSibling );
+//				if( !(this.index%2) ){//点的是偶数个（上移）
+////					alert( "上移" );
+//					if(!this.parentNode.previousElementSibling){
+//						return;
+//					}
+//					list.insertBefore( this.parentNode,this.parentNode.previousElementSibling );
+//				}else{
+//					if(!this.parentNode.nextElementSibling){
+//						return
+//					}
+//					list.insertBefore(this.parentNode.nextElementSibling,this.parentNode);
+//				}
+//			}
+//		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li,
+			h2 {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="qq.css" />
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="list">
+				<h2><span></span>我的好友</h2>
+				<ul>
+					<li>小佳Love</li>
+					<li>从来就是这么正经</li>
+					<li>leo是个胖子</li>
+					<li>momo不是陌陌</li>
+				</ul>
+				<h2><span></span>企业好友</h2>
+				<ul>
+					<li>习近平</li>
+					<li>普京</li>
+					<li>奥巴马</li>
+				</ul>
+				<h2><span></span>黑名单</h2>
+				<ul>
+					<li>安倍</li>
+					<li>杜特尔特</li>
+				</ul>
+			</div>
+		</div>
+		<script>	
+		/*
+			思路:
+				1点击所有的h2,为h2添加或者删除class,显示或者隐藏下面的ul
+					点击h2，如果点击的h2是选中的，把class清除
+							否则,把上一个点击的h2的class清除，为点击的加class
+					
+					只要h2class进行切换了，那么对应的ul的display都要进行切换
+					
+				2移入li的时候，
+					如果上一个li不是被选中的，清除上一个li的class
+						
+					如果这个li是被选中的话，不变颜色
+							否则，添加class（active）
+		*/	
+			var h2s = document.getElementsByTagName("h2");
+			var uls = document.getElementsByTagName("ul");
+			var lis = document.getElementsByTagName("li");
+			var last = 0;
+			var lastLi = 0;
+			var lastSelect = 0;
+			for(var i = 0;i<h2s.length;i++){
+				h2s[i].index = i;
+				h2s[i].onoff = true;//true 对应的是h2没有class
+				h2s[i].onclick = function(){
+//					if(last == this.index){
+//						h2s[last].className = "";
+//					}else{
+//						h2s[last].className = "";
+//						this.className = "active";
+//						last = this.index;
+//					}
+					if(this.onoff){//把上一个点击的h2的class清除，为点击的加class
+						h2s[last].className = "";
+						h2s[last].onoff = true;
+						uls[last].style.display = "none";
+						this.className = "active";
+						uls[this.index].style.display = "block"; 
+						this.onoff = false;
+						last = this.index;
+					}else{//如果点击的h2是选中的，把class清除
+						this.className = "";//为点击的h2清除class同时要改变h2身上的开关为true
+						uls[this.index].style.display = "none";
+						this.onoff = true;
+					}
+//					console.log( h2s[0].onoff,h2s[1].onoff,h2s[2].onoff );
+				}
+			}
+			for (var i = 0; i < lis.length; i++) {
+				lis[i].flag = true;//标记li是不是被选中的，true代表未被选中
+				lis[i].index = i;
+				lis[i].onmouseover = function(){
+					if(lis[lastLi].flag){
+						lis[lastLi].className = "";
+					}
+					if(this.flag){
+						this.className = "active";
+					}
+					lastLi = this.index;
+					console.log( lis[0].flag,lis[1].flag,lis[2].flag,lis[3].flag );
+				}
+				lis[i].onclick = function(){
+					lis[lastSelect].className = "";
+					lis[lastSelect].flag = true;
+					this.className = "selected";
+					this.flag = false;
+					lastSelect = this.index;
+					console.log( lis[0].flag,lis[1].flag,lis[2].flag,lis[3].flag );
+				}
+				lis[i].onmouseout = function(){
+					if(this.flag){
+						this.className = "";
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

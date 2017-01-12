@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>模拟手机短信发送</title>
+	<link rel="stylesheet" type="text/css" href="css/new_file.css"/>
+</head>
+<body>
+	<div id="centerBox">
+		<div class="line"></div>
+		<div class="centerBox-m">
+			<div id="messageBody">
+				<!--<div class="right">
+					<img src="img/rico.png"/>
+					<span>说：哈？好呀，多少钱我都愿意～
+～呵呵<em></em></span>					
+				</div>-->
+				<!--<div class="left">
+					<img src="img/lico.png"/>
+					<span>说：这个简单，我们去妙味远程
+课堂学就行啦～～～<em></em></span>					
+				</div> -->
+			</div>
+			<div id="send">
+				<img src="img/lico.png" id='img' />
+				<input type="text" placeholder="请输入" id="text" />
+				<input type="submit" value="发送" id="submit" />
+			</div>
+		</div>
+		<img class="log" src="img/miaov.png"/>
+	</div>
+	<script type="text/javascript">
+		//1.做头像切换
+		var userIco = document.getElementById("img");//获取头像元素
+		var blueActive = true;
+		var pos = "left";
+		
+		
+		userIco.onclick = function() {
+			if(blueActive) {
+				this.src = "img/rico.png"
+				pos = "right";
+			} else {
+				this.src = "img/lico.png"
+				pos = "left";
+			}
+			blueActive = !blueActive;
+		}
+		
+		
+		//2.做输入框 & 发送按钮
+		var textInp = document.getElementById("text");
+		var messageBody = document.getElementById("messageBody");
+		var submitBtn = document.getElementById("submit");
+		
+		submitBtn.onclick = function() {
+			if(textInp.value != ""){
+				messageBody.innerHTML = "<div class='"+pos+"'><img src='"+userIco.src+"'/><span>说："+textInp.value+"<em></em></span></div>" + messageBody.innerHTML;
+				textInp.value = "";
+			} else {
+				alert("请输入点东西吧");
+			}
+		}
+		
+		
+		
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--<script>
+
+
+//1.做头像切换
+
+	var img = document.getElementById("img");
+	var onoff = true;//用开关的原因是用src来判断不靠谱（src返回的是绝对地址），所以用开关值来对应两个图片或两种状态
+	var pos = "left"
+	img.onclick = function(){
+		if(onoff){
+			img.src = "img/rico.png";
+			onoff = false;
+			pos = "right"
+		}else{
+			img.src = "img/lico.png";
+			onoff = true;
+			pos = "left"
+		}
+	}
+//2.做输入框
+	var text1 = document.getElementById("text");
+//	var input1 = text1.value;
+//	alert( input1);
+	var btn = document.getElementById("submit");
+	var box = document.getElementById("messageBody");
+	
+	btn.onclick = function(){
+		if(text1.value == ""){
+			alert('请输入点东西吧');
+		}else{
+		box.innerHTML = '<div class='+pos+'><img src='+img.src+'/><span>说：'+text1.value+'<em></em></span></div>' + box.innerHTML;
+		text1.value = "";
+		}
+	}
+	</script>-->
+</body>
+</html>

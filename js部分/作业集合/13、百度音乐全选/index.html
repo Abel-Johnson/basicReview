@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="baidu.css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="baidu">
+				<ul id="list">
+					<li>
+						<div></div>
+						<span>泡沫</span>
+						<span>邓紫棋</span>
+					</li>
+					<li>
+						<div></div>
+						<span>说爱你</span>
+						<span>蔡依林</span>
+					</li>
+					<li>
+						<div></div>
+						<span>稻香</span>
+						<span>周杰伦</span>
+					</li>
+					<li>
+						<div></div>
+						<span>我的梦</span>
+						<span>张靓颖</span>
+					</li>
+					<li>
+						<div></div>
+						<span>怎么说我不爱你</span>
+						<span>萧敬腾</span>
+					</li>
+					<li>
+						<div>️</div>
+						<span>无处安放</span>
+						<span>白若溪</span>
+					</li>
+				</ul>
+				<div class="select">
+					<span class="selectAll"><span>全选</span></span>
+					<div class="others">
+						<span><em></em>收藏</span>
+						<span><em></em>添加</span>
+						<span><em></em>删除</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var lis = document.querySelectorAll("#list li");
+			var divs = document.querySelectorAll("#list div");
+			var selectAll = document.querySelectorAll(".selectAll")[0];
+			changeColor();
+			for (var i = 0; i < lis.length; i++) {
+				lis[i].index = i;
+				lis[i].onoff = false;
+				lis[i].onclick = function(){
+					if( this.onoff == false ){
+						divs[this.index].innerHTML = "✔";
+					}else{
+						divs[this.index].innerHTML = "";
+					}
+					this.onoff = !this.onoff;
+					checkAll();
+					changeColor();
+				}
+				lis[i].onmouseover = function(){
+					if(!this.onoff){
+						this.style.backgroundColor = "rgba(200,0,0,0.9)"
+						this.style.color = "#fff";
+					}
+				}
+				lis[i].onmouseout = function(){
+					if(!this.onoff){
+						this.style.backgroundColor = this.index%2?"rgba(200,0,0,0.3)":"";
+						this.style.color = "#000";
+					}
+				}
+			}
+			selectAll.onoff = false;
+			selectAll.onclick = function(){
+				for(var i = 0;i<divs.length;i++){
+					divs[i].innerHTML = this.onoff ? "" : "✔";
+					lis[i].onoff = this.onoff ? false : true;
+				}
+				this.innerHTML = this.onoff ? "<span>全选</span>":"✔<span>全选</span>"
+				this.onoff = !this.onoff;
+				changeColor();
+			}
+			function checkAll () {
+				var num = 0;
+				for (var i = 0; i < lis.length; i++) {
+					if(lis[i].onoff){
+						num++;
+					}
+				}
+				selectAll.innerHTML = num==lis.length? "✔<span>全选</span>":"<span>全选</span>";
+			}
+			function changeColor(){//各行变色，并且把选中的元素的颜色变成深红色
+				for(var i = 0;i<lis.length;i++){
+					if(lis[i].onoff == true){
+						lis[i].style.background = "rgba(200,0,0,0.9)";
+						lis[i].style.color = "#fff";
+					}else{
+						if(i%2){
+							lis[i].style.background  = "rgba(200,0,0,0.3)"
+						}else{
+							lis[i].style.background  = ""
+						}
+						lis[i].style.color = "#000";
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

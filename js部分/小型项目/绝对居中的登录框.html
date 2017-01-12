@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+				/*position: relative;*/
+			}
+			#box{
+				/*width: 500px;*/
+				padding: 0 50px;
+				height: 300px;
+				background-color: #f00;
+				position: absolute;
+				max-width: 400px;
+				/*transition: 0.5s;*/
+			}
+		</style>
+	</head>
+	<body style="height: 4000px;">
+		<div id="box">我是一段非常长的文字我是一段非常长的文字我是一段非常长的文字我是一段非常长的文字我是一段非常长的文字</div>
+		<!--
+			
+			滚动时候弹出层依然是绝对居中的
+			
+				在原来居中的基础上，加上页面滚动的高度
+			
+		-->
+		<script>
+		    var box = document.getElementById("box");
+		    var windowW = document.documentElement.clientWidth;
+		    var windowH = document.documentElement.clientHeight;
+		    change();
+		    function change(){
+		    	var wTop = document.body.scrollTop || document.documentElement.scrollTop//页面滚动距离
+		    	box.style.left = ((windowW - box.clientWidth)/2)+"px";
+		    	box.style.top = ((windowH/2) - (box.clientHeight/2))+"px";
+//		    	box.style.top = ((windowH/2) - (box.clientHeight/2) + wTop)+"px";
+		    }
+		    window.onscroll = function(){
+		    	change();
+		    }
+		    window.onresize = function(){//当窗口大小改变的时候触发
+		    	windowW = document.documentElement.clientWidth;
+		    	windowH = document.documentElement.clientHeight;
+		    	change();
+		    }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,111 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<ul id="list">
+	<li>
+	  	<input type="button" value="-" />
+	    <strong>0</strong>
+	  	<input type="button" value="+" />
+		单价：<em>1元</em>
+		小计：<span>0元</span>
+  	</li>
+	<li>
+	  	<input type="button" value="-" />
+	    <strong>0</strong>
+	  	<input type="button" value="+" />
+		单价：<em>2元</em>
+		小计：<span>0元</span>
+  	</li>
+	<li>
+	  	<input type="button" value="-" />
+	    <strong>0</strong>
+	  	<input type="button" value="+" />
+		单价：<em>3元</em>
+		小计：<span>0元</span>
+  	</li>
+	<li>
+	  	<input type="button" value="-" />
+	    <strong>0</strong>
+	  	<input type="button" value="+" />
+		单价：<em>5元</em>
+		小计：<span>0元</span>
+  	</li>
+	<li>
+	  	<input type="button" value="-" />
+	    <strong>0</strong>
+	  	<input type="button" value="+" />
+		单价：<em>10元</em>
+		小计：<span>0元</span>
+  	</li>
+</ul>
+
+<p id="bottom">
+商品合计共：<span>0</span>件，共花费了：<span>0</span>元<br />
+其中最贵的商品单价是：<span>0</span>元
+</p>
+
+<script>	
+	var list = document.getElementById("list");
+	var lis = list.getElementsByTagName("li");
+	var strongs = list.getElementsByTagName("strong");
+	var list_spans = list.getElementsByTagName("span");
+	var list_ems = list.getElementsByTagName("em");
+	var bottom = document.getElementById("bottom");
+	var spans = bottom.getElementsByTagName("span");
+	var a = 0;
+	var b = 0;
+	var c = 0;
+	for (var i = 0; i < lis.length; i++) {
+		tab( lis[i] );
+	}
+//	tab( lis[0] );
+	function tab(obj){
+		var inps = obj.getElementsByTagName("input");
+		var strong = obj.getElementsByTagName("strong")[0];
+		var em = obj.getElementsByTagName("em")[0];
+		var span = obj.getElementsByTagName("span")[0];
+		var num = 0;
+		inps[0].onclick = function(){//-
+			num--;
+			if(num < 0){
+				num = 0;
+			}
+			span.innerHTML = num * parseFloat(em.innerHTML) + "元";
+			strong.innerHTML = num;
+			count ();
+		}
+		inps[1].onclick = function(){//+
+			num ++;
+//			alert( em.innerHTML );
+			span.innerHTML = num * parseFloat(em.innerHTML) + "元";
+			strong.innerHTML = num;
+			count ();
+		}
+	}
+	function count () {
+		a = 0;
+		b = 0;
+		c = 0;
+		for (var i = 0; i < lis.length; i++) {
+			a += parseInt( strongs[i].innerHTML );
+			b += parseInt( list_spans[i].innerHTML );
+			if( parseInt( strongs[i].innerHTML ) ){//当当前循环的件数不为0的时候，比较对应的单价的大小
+				if( parseFloat(list_ems[i].innerHTML)>c ){//单价>c
+					c = parseFloat(list_ems[i].innerHTML)
+				}
+			}
+		}
+		spans[0].innerHTML = a;
+		spans[1].innerHTML = b;
+		spans[2].innerHTML = c;
+	}
+</script>
+</body>
+</html>

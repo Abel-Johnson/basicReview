@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    .box{
+		    	width: 80px;
+		    	float: left;
+		    	margin-right: 20px;
+		    	position: relative;
+		    }
+		    .box input{
+		    	position: absolute;
+		    	left: 10px;
+		    	top: 10px;
+		    }
+		    img{
+		    	border: none;
+		    	vertical-align: top;
+		    	width: 80px;
+		    	height: 87px;
+		    }
+		    span{
+		    	display: block;
+		    	text-align: center;
+		    }
+		    
+		</style>
+	</head>
+	<body>
+		<input type="button" value="新建文件夹" id="add" />
+		<input type="button" value="删除选中文件夹"  id="del"/>
+		<div id="content">
+			<!--<div class="box">
+				<input type="checkbox"/>
+				<img src="img/2.png" alt=""/>
+				<span>新建文件夹</span>
+			</div>
+			<div class="box">
+				<input type="checkbox"/>
+				<img src="img/2.png" alt="" />
+				<span>新建文件夹</span>
+			</div>
+			<div class="box">
+				<input type="checkbox"/>
+				<img src="img/2.png" alt="" />
+				<span>新建文件夹</span>
+			</div>-->
+		</div>
+		<script>
+			var add = document.getElementById("add");
+			var del = document.getElementById("del");
+			var content = document.getElementById("content");
+			var num = 0;
+			add.onclick = function(){
+				num ++;
+				var div = document.createElement("div");
+				div.className = "box";
+				var inp = document.createElement("input");
+				inp.type = "checkbox";
+				inp.onclick = function(){
+					if(this.checked){
+						img.src = "img/2.png";
+					}else{
+						img.src = "img/1.png";
+					}	
+				}
+				div.appendChild( inp );
+				 
+				var img = document.createElement("img");
+				img.src = "img/1.png";
+				
+				img.onclick = function(){
+					img.src = "img/2.png";
+					inp.checked = true;
+				}
+				div.appendChild( img );
+				
+				var span = document.createElement("span");
+				span.innerHTML = "新建文件夹" + num; 
+				div.appendChild( span );
+				
+				content.appendChild( div );
+			}
+			var cont_inp = content.getElementsByTagName("input");
+			del.onclick = function(){
+//				for (var i = 0; i < cont_inp.length; i++) {
+//					if(cont_inp[i].checked){
+//						content.removeChild( cont_inp[i].parentNode );
+////						alert(1);
+//						i--;
+//					}
+//				}
+				for (var i = cont_inp.length-1; i >=0 ; i--) {
+					if(cont_inp[i].checked){
+						content.removeChild( cont_inp[i].parentNode );
+						alert(1);
+					}
+				}
+			}
+			var imgs = content.getElementsByTagName("img");
+		</script>
+	</body>
+</html>

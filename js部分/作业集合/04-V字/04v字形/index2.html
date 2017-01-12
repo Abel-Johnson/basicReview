@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body {
+			margin: 0;
+			width: 1000px;
+			height: 800px;
+			margin: 0 auto;
+			background: url(bg.png) no-repeat center center;
+		}
+		
+		.wrap {
+			width: 290px;
+			height: 490px;
+			background: url(bg1.png) no-repeat center center;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -245px 0 0 -145px;
+			position: absolute;
+			box-shadow: 0 0 8px rgba(0,0,0,.3);
+			border-radius: 5px;
+		}
+		
+		.box {
+			width: 252px;
+			height: 252px;
+			position: absolute;
+			top: 70px;
+			left: 50%;
+			margin-left: -126px;
+		}
+		
+		.btn {
+			width: 114px;
+			height: 36px;
+			border: 1px solid #68bcfa;
+			border-radius: 3px;
+			position: absolute;
+			bottom: 30px;
+			left: 50%;
+			margin-left: -57px;
+			text-align: center;
+			font: 16px/36px arial;
+			color: #68bcfa;
+			cursor: pointer;
+		}
+		.btn:hover {
+			background: #68bcfa;
+			color: #fff;
+		}
+		
+		.box div {
+			width: 50px;
+			height: 50px;
+			background: #fff;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			color: #68bcfa;
+			border-radius: 2px;
+			position: absolute;
+			opacity: 0;
+			/*transition: 1s;*/
+		}
+	</style>
+</head>
+
+<body onselectstart="return false;">
+	<div class="wrap">
+		<div class="box" id="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+		<div class="btn" id="btn">生成</div>
+	</div>
+	<script>
+		var btn = document.getElementById("btn");
+		var box = document.getElementById("box");
+		var divs = box.getElementsByTagName("div");
+		var num = 0;
+		var Left = 0;
+		var Top = 0; 
+		btn.onclick = function(){
+			for(var i = 0;i<divs.length;i++){
+				divs[i].style.opacity = 1;
+			}
+			for(var i = 0;i<divs.length;i++){
+				if(num == 0){//生成向上的V
+					Left = i*50;
+					if( i<3 ){
+						Top = i*50;
+					}else{
+						Top = (4-i)*50;
+					}
+				}
+				if(num == 1){
+					Top = i*50;
+					if( i<3 ){
+						Left = (4-i)*50;
+					}else{
+						Left = i*50;
+					}
+				}
+				if(num == 2){
+					Left = i*50;
+					if( i<3 ){
+						Top = (4-i)*50;
+					}else{
+						Top = i*50;
+					}
+				}
+				if(num == 3){
+					Top = i*50;
+					if( i<3 ){
+						Left = i*50;
+					}else{
+						Left = (4-i)*50;
+					}
+				}
+				divs[i].style.left = Left + "px";
+				divs[i].style.top = Top + "px";
+			}
+			num++;
+			num %= 4;
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#box{
+			border: 5px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+	</div>
+	<input type="checkbox" id="checkAll" />全选
+	<script>
+		var inps = document.querySelectorAll("#box input");
+		var checkAll = document.getElementById("checkAll");
+		var num = 0;
+		
+		for (var i = 0; i < inps.length; i++) {
+			inps[i].onclick = function(){
+				check()
+			}
+		}
+		checkAll.onclick = function(){
+//			alert(this.checked)
+			for (var i = 0; i < inps.length; i++) {
+				if(this.checked){
+					inps[i].checked = true;
+				}else{
+					inps[i].checked = false;
+				}
+			}
+		}
+		function check () {
+			for (var i = 0; i < inps.length; i++) {
+				if(inps[i].checked == false){//遍历的inp没有被选中，那么直接把下面的全选取消，不需要进行后面的遍历了
+					checkAll.checked = false;
+//					return;
+				}
+			}
+			checkAll.checked = true;
+		}
+	</script>
+</body>
+</html>

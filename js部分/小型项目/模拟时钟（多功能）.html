@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>⌚️</title>
+		<style type="text/css">
+			i {
+				font-size: 200PX;
+				display: block;
+				text-align: center;
+				position: absolute;
+				left: 150px;
+				top: 150px;
+			}
+			
+			#watch {
+				margin: 0 auto;
+				width: 1000px;
+				height: 1000px;
+				border-radius: 50%;
+				border: 10px solid #000000;
+				position: relative;
+			}
+			
+			#watch div {
+				position: absolute;
+				/*top: 0;*/
+				/*transform: rotate(90deg);*/
+			}
+			
+			.short_line {
+				top: 0;
+				width: 10px;
+				height: 20px;
+				background: deepskyblue;
+				left: 495px;
+				transform-origin: 5px 500px;
+			}
+			
+			.long_line {
+				top: 0;
+				width: 20px;
+				height: 50px;
+				background: dodgerblue;
+				left: 490px;
+				transform-origin: 10px 500px;
+			}
+			
+			.point {
+				width: 40px;
+				height: 40px;
+				background: silver;
+				border-radius: 50%;
+				position: absolute;
+				top: 480px;
+				left: 480px;
+				z-index: 3;
+			}
+			
+			.little_point {
+				width: 10px;
+				height: 10px;
+				background: black;
+				border-radius: 50%;
+				position: absolute;
+				top: 145px;
+				left: 145px;
+				z-index: 1;
+			}
+			
+			.sec {
+				width: 10px;
+				height: 500px;
+				background: red;
+				top: 80px;
+				left: 495px;
+				transform-origin: 5px 420px;
+				z-index: 2;
+			}
+			
+			.min {
+				width: 14px;
+				height: 450px;
+				/*transform: rotate(90deg);*/
+				background: blueviolet;
+				top: 100px;
+				left: 495px;
+				transform-origin: 7px 400px;
+				z-index: 2;
+			}
+			
+			.hour {
+				width: 26px;
+				height: 400px;
+				background: black;
+				top: 150px;
+				left: 487px;
+				transform-origin: 13px 350px;
+				/*transform: rotate(90deg);*/
+				z-index: 2;
+			}
+			
+			.little_watch {
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				position: absolute;
+				border: 2px solid #000000;
+			}
+			
+			.little_watch:nth-of-type(1) {
+				left: 350px;
+				top: 86px;
+			}
+			
+			.little_watch:nth-of-type(2) {
+				left: 86px;
+				top: 350px;
+			}
+			
+			.little_watch:nth-of-type(3) {
+				left: 350px;
+				bottom: 86px;
+			}
+			/*#mD{
+				left: 350px;
+				top: 86px;
+			}*/
+			
+			.sub_line {
+				width: 4px;
+				height: 10px;
+				position: absolute;
+				background: black;
+				left: 148px;
+				transform-origin: 2px 150px;
+			}
+			
+			.little_needle {
+				width: 6px;
+				height: 120px;
+				background: deepskyblue;
+				top: 30px;
+				left: 147px;
+				transform-origin: 3px 120px;
+			}
+			
+			#btn_group {
+				margin: 30px auto;
+				/*margin: 30px;*/
+				width: 600px;
+				text-align: center;
+			}
+			
+			#date_box {
+				right: 86px;
+				top: 478px;
+				/*overflow: hidden;*/
+				font-size: 40px;
+				line-height: 40px;
+				text-align: center;
+				font-family: "sans-serif，arial, helvetica "  ;
+			}
+			
+			#date_box:after {
+				content: "";
+				clear: both;
+				display: block;
+			}
+			
+			#date {
+				float: left;
+				width: 40px;
+				height: 40px;
+				border: 2px solid #000000;
+				position: static !important;
+			}
+			
+			#day {
+				float: left;
+				width: 160px;
+				height: 40px;
+				border: 2px solid #000000;
+				margin-left: -2px;
+				position: static !important;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="watch"></div>
+		<div id="btn_group">
+			<input type="button" value="start" id="start" />
+			<input type="button" value="reset" id="reset" />
+			<input type="button" value="stop" id="stop" />
+		</div>
+		<script type="text/javascript">
+			var watch = document.getElementById("watch");
+			var str = '';
+			for(var j = 0; j < 3; j++) {
+
+				str += '<div id="mD" class="little_watch">'
+				for(var i = 0; i < 60; i++) {
+					if(i % 5 == 0) {
+						str += '<div class="sub_line" style = "height: 20px; transform: rotate(' + 6 * i + 'deg);"></div>';
+					} else {
+						if(j !== 2) {
+							str += '<div class="line sub_line" style = "transform: rotate(' + 6 * i + 'deg);"></div>';
+						}
+					}
+				}
+				str += "<div class='little_point'></div><div class='little_needle'></div>"
+				str += '</div>'
+
+			}
+			for(var i = 0; i < 60; i++) {
+				if(i % 5 == 0) {
+					str += '<div class="long_line" style = "transform: rotate(' + 6 * i + 'deg);"></div>';
+				} else {
+					str += '<div class="line short_line" style = "transform: rotate(' + 6 * i + 'deg);"></div>';
+				}
+			}
+			str += "<div class='point'></div><div class='sec'></div><div class='min'></div><div class='hour'></div>"
+			str += '<div id="date_box"><div id = "date"></div><div id = "day"></div></div>'
+			watch.innerHTML = str;
+			var sec = document.getElementsByClassName("sec")[0];
+			var min = document.getElementsByClassName("min")[0];
+			var hour = document.getElementsByClassName("hour")[0];
+			rotate();
+
+			function rotate() {
+				var now = new Date();
+
+				sec.style.transform = "rotate(" + (now.getSeconds() * 6 + now.getMilliseconds() / 1000 * 6) + "deg)";
+				min.style.transform = "rotate(" + (now.getMinutes() * 6 + now.getSeconds() / 60 * 6) + "deg)";
+				hour.style.transform = "rotate(" + (now.getHours() * 30 + now.getMinutes() / 60 * 30) + "deg)";
+			}
+			setInterval(rotate, 16)
+
+			//开始做小表盘
+			var timer = null;
+			var timer2 = null;
+			var sBaseValue = 0;
+			var mBaseValue = 0;
+			var hBaseValue = 0;
+			var sss = 0;
+			var mmm = 0;
+			var hhh = 0;
+			//1.获取指针
+			var tiny_sec = document.getElementsByClassName("little_needle")[0];
+			var tiny_min = document.getElementsByClassName("little_needle")[1];
+			var tiny_hour = document.getElementsByClassName("little_needle")[2];
+			//2.获取按钮
+			var start = document.getElementById("start");
+			var reset = document.getElementById("reset");
+			var stop = document.getElementById("stop");
+			//3.添加start点击事件
+			start.onclick = function() {
+				clearInterval(timer);
+				var startTime = new Date();
+
+				timer = setInterval(function() {
+					var variableTime = new Date();
+					var times = (variableTime - startTime) / 1000;
+					var ls = times % 60;
+					var lm = times % 86400 % 3600 / 60;
+					var lh = times % 86400 / 3600;
+
+					sss = ls / 60 * 360 + sBaseValue;
+					mmm = lm / 60 * 360 + mBaseValue;
+					hhh = lh / 12 * 360 + hBaseValue;
+					tiny_sec.style.transform = 'rotate(' + sss + 'deg)'
+					tiny_min.style.transform = 'rotate(' + mmm + 'deg)'
+					tiny_hour.style.transform = 'rotate(' + hhh + 'deg)'
+				}, 16)
+			}
+			stop.onclick = function() {
+				//				alert(ls);
+				clearInterval(timer);
+				sBaseValue = sss;
+				mBaseValue = mmm;
+				hBaseValue = hhh;
+			}
+			reset.onclick = function() {
+				var snum = sss;
+				var mnum = mmm;
+				var hnum = hhh;
+				timer2 = setInterval(function() {
+					snum++;
+					mnum++;
+					hnum++;
+					if(snum >= 360) {
+						snum = 360;
+					}
+					if(mnum >= 360) {
+						mnum = 360;
+					}
+					if(hnum >= 360) {
+						hnum = 360;
+					}
+					if(snum == 360 && mnum == 360 && hnum == 360) {
+						clearInterval(timer2);
+					}
+					tiny_sec.style.transform = 'rotate(' + snum + 'deg)'
+					tiny_min.style.transform = 'rotate(' + mnum + 'deg)'
+					tiny_hour.style.transform = 'rotate(' + hnum + 'deg)'
+				}, 16)
+				sBaseValue = 0;
+				mBaseValue = 0;
+				hBaseValue = 0;
+			}
+
+			var dayBox = document.getElementById("day");
+			var dateBox = document.getElementById("date");
+
+			setInterval(changeDate, 16);
+
+			function changeDate() {
+
+				var now = new Date();
+				//			dayBox.innerHTML = now.getDay();
+				dateBox.innerHTML = now.getDate();
+				switch(now.getDay()) {
+					case 0:
+						dayBox.innerHTML = "星期日";
+						break;
+					case 1:
+						dayBox.innerHTML = "星期一";
+						break;
+					case 2:
+						dayBox.innerHTML = "星期二";
+						break;
+					case 3:
+						dayBox.innerHTML = "星期三";
+						break;
+					case 4:
+						dayBox.innerHTML = "星期四";
+						break;
+					case 5:
+						dayBox.innerHTML = "星期五";
+						break;
+					case 6:
+						dayBox.innerHTML = "星期六";
+						break;
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>待办事项(vue版)</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <section class="todoapp">
+        <div>
+            <header class="header" >
+                <h1>todos</h1>
+                <input class="new-todo" placeholder="请输入内容" v-model="inpText" @keyup.enter="confirm">
+            </header>
+            <section class="main">
+                <input class="toggle-all" type="checkbox" checked="">
+                <ul class="todo-list">
+                			<li :class="{completed:item.isSelected}" v-for="item of list">
+                        <div class="view">
+                            <input class="toggle" type="checkbox" v-model="item.isSelected">
+                            <label>{{item.title}}</label>
+                            <button class="destroy" @click="deleteFn(item.id)"></button>
+                        </div>
+                        <input class="edit" :value="item.title">
+                    </li>
+                </ul>
+            </section>
+            <footer class="footer">
+	            <span class="todo-count">
+	            	<strong>0</strong>
+	            	<span>条未选中</span>
+	            </span>
+            </footer>
+        </div>
+    </section>
+    <script src="js/app.js"></script>
+	</body>
+</html>

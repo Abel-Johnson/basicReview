@@ -14,26 +14,81 @@
         <div>
             <header class="header" >
                 <h1>todos</h1>
-                <input class="new-todo" placeholder="请输入内容" v-model="inpText" @keyup.enter="confirm">
+                <input
+                	 class="new-todo"
+                	 placeholder="请输入内容"
+                	 v-model="inpText" 
+                	 @keyup.enter="confirm"
+                >
             </header>
-            <section class="main">
-                <input class="toggle-all" type="checkbox" checked="">
+            <section
+            	 class="main" 
+            	 v-show="list.length"
+            	>
+            	<!--使用数据长度来显示隐藏section的主要目的是要显示隐藏那个⬇️全选小箭头-->
+                <input
+                	 class="toggle-all" 
+                	 type="checkbox" 
+                	 v-model="selectAll" 
+                	/>
                 <ul class="todo-list">
-                			<li :class="{completed:item.isSelected}" v-for="item of list">
+                			<li
+                				 :class="{
+                				 	completed:item.isSelected,
+                				 	editing:editingIndex===index
+                				 	}" 
+                				 	v-for="item,index of filterLis"
+                			>
                         <div class="view">
-                            <input class="toggle" type="checkbox" v-model="item.isSelected">
-                            <label>{{item.title}}</label>
-                            <button class="destroy" @click="deleteFn(item.id)"></button>
+                            <input
+                            	 class="toggle"
+                            	 type="checkbox" 
+                            	 v-model="item.isSelected"
+                            	/>
+                            <label @dblclick="editTodo(item,index)">{{item.title}}</label>
+                            <button
+                            	 class="destroy" @click="deleteFn(item.id)"></button>
                         </div>
-                        <input class="edit" :value="item.title">
+                        <input 
+	                        	class="edit" 
+	                        	:ref='"editOf"+index'
+	                        	v-model="item.title"
+	                        	@blur="editDone(item)"
+	                        	@keyup.enter="editDone(item)"
+	                        	@keyup.esc="editEsc(item)"
+                        	>
                     </li>
                 </ul>
             </section>
-            <footer class="footer">
+            <footer
+            	 class="footer" 
+            	 v-show="list.length"
+            >
 	            <span class="todo-count">
-	            	<strong>0</strong>
-	            	<span>条未选中</span>
+	            		<strong>{{unSeletedLen}}</strong>
+	            		<span>条未选中</span>
 	            </span>
+	            <ul class="filters">
+                  <li><a
+                  	 href="#/all" 
+                  	 :class="{selected:hash==='all'}"
+                  >All</a></li> 
+                  <li><a
+                  	 href="#/active" 
+                  	 :class="{selected:hash==='active'}"
+                  	>Active</a></li> 
+                  <li><a
+                  	 href="#/completed" 
+                  	 :class="{selected:hash==='completed'}"
+                  	>Completed</a></li>
+              </ul>
+              <button
+              	 class="clear-completed" 
+              	 v-show="seletedLen" 
+              	 @click="removeTodos"
+              	>
+                  Clear completed
+              </button>
             </footer>
         </div>
     </section>

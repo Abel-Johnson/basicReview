@@ -102,7 +102,130 @@ new Vue({
 ! 注意: 命名规范,遇到一个,***方法名不能叫delete***
 
 
+## 三种模板
 
+1. html模板
+	
+	```html
+	<!--视图V-->
+	<div v-html='innerHtml'>
+	
+	<!--数据-->
+	var vm = new Vue({
+		el:xx,
+		data: {
+			innerHtml: "<div>xxx</div>"
+		}
+	})
+	```
+2. template
+
+	两种方法: 
+
+	1. 字符串模板做选项对象中template的值
+	
+		```html
+		<!--视图V-->
+		<div id="box" v-html='innerHtml'><div>
+		
+		<!--数据m-->
+		innerHtml: "<div>xxx</div>"(注意: 只能有一个根节点)
+		let obj = {
+			...
+		}
+		
+		
+		<!--vm-->
+		var vm = new Vue({
+			el:'#box',
+			data: obj,
+			template: innerHtml(注意: 会完全替换挂载点元素)
+		})
+	
+		```
+	2. script标签存放模板(类似模板引擎)(两点注意: type和id)
+	
+		```html
+		<!--视图V-->
+		<div id="box" v-html='innerHtml'><div>
+		
+		<!--数据m-->
+		<script type='x-template' id="temp"><div>xxx</div></script>
+		
+		let obj = {
+			...
+		}
+		
+		
+		<!--vm-->
+		var vm = new Vue({
+			el:'#box',
+			data: obj,
+			template: '#temp'(注意: 会完全替换挂载点元素)
+		})
+		```
+
+3. render模板
+
+		编译的时候,编译器会吧模板里的html标签拿出来,都调用一遍render函数
+
+		```html
+		<!--视图V-->
+		<div id="box" v-html='innerHtml'><div>
+		
+		<!--数据m-->
+		
+		
+		let obj = {
+			...
+		}
+		
+		
+		<!--vm-->
+		var vm = new Vue({
+			el:'#box',
+			data: obj,
+			render: function(createElement){//这个参数实际上就是一个创建元素的方法
+			//语法: createElement(标签名,[数据对象(包括id, class,或自定义属性)],子元素(文本或数组)),这个函数就会返回一个虚拟DOM(VNode)
+			
+				return createElement(
+					"ul"(标签名), 
+					
+					{  //选项(数据)对象
+						class: { //类似v-bind:class={'class': true}
+							class名: 布尔值
+						},
+						style: {
+							fontsize: '90px'
+						},
+						attrs: {
+							自定义属性名: "属性值"
+						},
+						domProps: {
+							//DOM对象身上的属性
+							innerHTML: '<li>xx</li>'//这条指令的权重较高,底下传的第三个参数就无效了
+							value: xxx
+							...
+						},
+						on: {
+							绑定事件
+						}
+						
+					},
+					
+					
+					[
+						createElement('li',数据1),
+						createElement('li',数据2),
+						createElement('li',数据3)
+					](子元素数组,也可以是单个的就不必要携写成数组了)
+					
+				)
+			}
+		})
+		```
+		
+	
 
 ## 组件(组合的视图组件)
 比如在布局时,可能很多页面都有相同的一块结构,所以把这些具有可复用性的代码块做成组件,比如**element**

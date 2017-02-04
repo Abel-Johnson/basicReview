@@ -44,11 +44,11 @@
 ```javascript
 var classType = {};
 
-			var arr = "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " );
+var arr = "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " );
 
-			arr.forEach(function (value){
-				classType["[object "+ value +"]"] = value.toLowerCase();
-			})
+arr.forEach(function (value){
+	classType["[object "+ value +"]"] = value.toLowerCase();
+})
 ```
 
 - [x] 已完成事项

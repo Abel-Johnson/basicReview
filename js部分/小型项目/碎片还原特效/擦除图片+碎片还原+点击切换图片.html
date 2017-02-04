@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 500px;
+				height: 500px;
+				background: white;
+				/*border: 1px solid #000000;*/
+				position: relative;
+				transform-style: preserve-3d;
+				perspective: 500px;
+				margin: 20px auto 0;
+			}
+			#box div{
+				/*float: left;*/
+				width: 50px;
+				height: 50px;
+				background: no-repeat 0 0;
+				background-size:500px 500px;
+				position: absolute;
+				transition: 1s;
+				/*transform-origin: 0 0;*/
+			}
+			input{
+				width: 100px;
+				height: 50px;
+				margin-bottom: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<input type="button" value="切换" />-->
+		<div id="box"></div>
+		<script type="text/javascript">
+//			var btn = document.getElementsByTagName("input")[0];
+			var imgArr = ["row_of_trees_palouse.jpg","ice_maze.jpg","abraham_lake_sunset.jpg","enchanted_sky_fire.jpg","mount_shuksan.jpg","schwabacher_sunset.jpg","teton_tarn_sunrise.jpg","the_solo_tree.jpg"];
+//			alert(imgArr.length)
+			var box = document.getElementById("box");
+			var innerDiv = "";
+			for (var i = 0; i < 100; i++) {
+				innerDiv += "<div style='background-position:-"+50*(i%10)+"px -"+Math.floor(i/10)*50+"px;left: "+50*(i%10)+"px;top:"+Math.floor(i/10)*50+"px;'></div>"
+			}//减少渲染次数，优化代码
+			box.innerHTML = innerDiv;
+			var divs = box.getElementsByTagName("div");
+//			for (var i = 0; i < 100; i++) {
+//				divs[i].onmouseover = function(){
+////					this.style.opacity = "0";
+//					this.style.transform = "rotateX("+parseInt(180*Math.random())+"deg) rotateY("+parseInt(180*Math.random())+"deg)";
+//				}
+//			}
+			var switchBtn = true;
+			var index = 0;
+			for (var i = 0; i < 100; i++){
+				divs[i].style.backgroundImage = 'url("'+imgArr[index]+'")';
+			}
+			document.onclick = function(){
+//			setInterval(function(){
+				index += 0.5;
+//				index ++;
+				for (var i = 0; i < 100; i++) {
+					if(switchBtn){
+						divs[i].style.transform = "translateZ("+parseInt(900*Math.random())+"px) rotateX("+parseInt(180*Math.random())+"deg) rotateY("+parseInt(180*Math.random())+"deg)";
+						divs[i].style.opacity = "0.5";
+					}else{
+						divs[i].style.transform = "";
+						divs[i].style.opacity = "1";
+						divs[i].style.backgroundImage = 'url("'+imgArr[index%imgArr.length]+'")';
+					}
+				}
+				switchBtn = !switchBtn;
+//			},1000)
+}
+		</script>
+	</body>
+</html>

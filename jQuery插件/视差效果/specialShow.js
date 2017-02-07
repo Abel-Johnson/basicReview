@@ -37,7 +37,7 @@
 					
 					var degX = rateRotateX*n+'deg';
 					var degY = -rateRotateY*n+'deg';
-					console.log(degX,degY);🀀🀀🀖🀍
+					console.log(degX,degY);
 
 					that.css('transform','rotateX('+(degY)+') rotateY('+degX+')')
 				})

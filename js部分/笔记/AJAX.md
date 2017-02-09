@@ -28,9 +28,9 @@
 			data = JSON.parse(data);
 			...(渲染语句)
 		},
-		error: function(data,a) {
-			console.log(data)----data是一个ajax对象,其中有属性status(表征获取成功与否的http状态码,如404)和描述statusText	
-			console.log(a)---(如果是error就说明出错了)	
+		error: function(XMLHttpRequest,a) {
+			console.log(XMLHttpRequest)----XMLHttpRequest是一个ajax对象,其中有属性status(表征获取成功与否的http状态码,如404)和描述statusText	
+			console.log(a)---(错误信息,如果是error就说明出错了)	
 		}
 	})
 	```
@@ -299,5 +299,5 @@ post方法: 由于设置了请求头,就不需要url编码了
 		}
 	```
 	`cb => callback`
-	2. 老师讲了一个案例: 搜索建议
+	2. 案例: 搜索建议
 	

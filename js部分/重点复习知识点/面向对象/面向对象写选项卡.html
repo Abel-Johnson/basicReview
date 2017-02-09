@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象写选项卡</title>
+	<style>
+		.active{
+			background: red;
+			color: white;
+		}
+		.tab div{
+			width: 200px;
+			height: 200px;
+			display: none;
+			border: 1px solid #000;
+			background: red;
+			color: white;
+			font-size: 100px;
+			line-height: 200px;
+			text-align: center;
+		}
+		.tab div:first-of-type{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="tab1" class="tab">
+		<input type="button" value="按钮1" class="active">
+		<input type="button" value="按钮2">
+		<input type="button" value="按钮3">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+	<div id="tab2" class="tab">
+		<input type="button" value="按钮1" class="active">
+		<input type="button" value="按钮2">
+		<input type="button" value="按钮3">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+	
+
+
+	<script>
+	// 普通写法(面向过程): 
+		// var btns = document.getElementsByTagName('input');
+		// var divs = document.getElementsByTagName('div');
+		// for (var i = 0; i < btns.length; i++) {
+		// 	btns[i].index = i;
+		// 	btns[i].onclick = function() {
+		// 		for (var i = 0; i < btns.length; i++) {
+		// 			btns[i].className = "";
+		// 			divs[i].style.display = "none"
+		// 		}
+		// 		this.className = "active";
+		// 		divs[this.index].style.display = "block"
+		// 	}
+		// }
+
+	// 面向对象写法: 
+	/*转换方法: 
+		step1: 普通方法变型
+			1. 尽量不要出现函数嵌套函数
+			2. 可以有全局变量
+			3. 把onload中不是赋值的语句放到单独函数中
+
+		step2: 改成面向对象
+			1. 全局变量就是属性
+			2. 函数就是方法
+			3. Onload中创建对象
+			4. 改this指向问题(事件或者定时器,尽量要让this指向实例)
+	*/
+	
+	// step1
+	// var oParent = null;
+	// var btns = null;
+	// var divs = null;
+
+	// window.onload = function() {
+	// 	// body... 
+	// 	oParent = document.getElementById("tab1");
+	// 	btns = oParent.getElementsByTagName('input');
+	// 	divs = oParent.getElementsByTagName('div');
+
+	// 	init();
+	// }
+	// function init() {
+	// 	for (var i = 0; i < btns.length; i++) {
+	// 		btns[i].index = i;
+	// 		btns[i].onclick = change;
+	// 	}
+	// }
+	// function change() {
+	// 	for (var i = 0; i < btns.length; i++) {
+	// 		btns[i].className = "";
+	// 		divs[i].style.display = "none";
+	// 	}
+	// 	this.className = "active";
+	// 	divs[this.index].style.display = "block"
+	// }
+
+	//step2
+	// function Tab(id) {
+	// 	this.oParent = document.getElementById(id);
+	// 	this.btns = this.oParent.getElementsByTagName('input');
+	// 	this.divs = this.oParent.getElementsByTagName('div');
+	// }
+	// Tab.prototype.init = function(){
+	// 	// body... 
+	// 	var This = this;
+	// 	for (var i = 0; i < this.btns.length; i++) {
+	// 		this.btns[i].index = i;
+	// 		this.btns[i].onclick = function() {
+	// 			This.change(this);
+	// 		}
+	// 	}
+	// };
+	// Tab.prototype.change = function(btn){
+	// 	// body... 
+	// 	for (var i = 0; i < this.btns.length; i++) {
+	// 		this.btns[i].className = "";
+	// 		this.divs[i].style.display = "none";
+	// 	}
+	// 	btn.className = "active";
+	// 	this.divs[btn.index].style.display = "block"
+	// };
+	// window.onload = function() {
+	// 	var tab1 = new Tab("tab1");
+	// 	tab1.init();
+	// } 
+	//------------------------------------
+
+	//如果添加需求,有多套选项卡,但是有的选项卡会轮播,有的不会
+	function Tab(id) {
+		this.oParent = document.getElementById(id);
+		this.btns = this.oParent.getElementsByTagName('input');
+		this.divs = this.oParent.getElementsByTagName('div');
+		this.iNow = 0;
+	}
+	Tab.prototype.init = function(){
+		var This = this;
+		for (var i = 0; i < this.btns.length; i++) {
+			this.btns[i].index = i;
+			this.btns[i].onclick = function() {
+				This.iNow = this.index;
+				This.change(this.iNow);
+			}
+		}
+	};
+	Tab.prototype.change = function(index){
+		// 该函数作用: 通过传入的当前按钮的索引值改变表现
+		for (var i = 0; i < this.btns.length; i++) {
+			this.btns[i].className = "";
+			this.divs[i].style.display = "none";
+		}
+		this.btns[index].className = "active";
+		this.divs[index].style.display = "block"
+	};
+	//核心代码: 
+	Tab.prototype.autoplay = function(){
+		// body... 
+		var This = this;
+		setInterval(function() {
+			This.iNow++;
+			This.iNow%=3;
+			This.change(This.iNow)
+		}, 1000)
+
+	};
+	window.onload = function() {
+		var tab1 = new Tab("tab1");
+		tab1.init();
+		tab1.autoplay();
+
+		var tab2 = new Tab("tab2");
+		tab2.init();
+		// tab2.autoplay();
+	} 
+
+
+
+
+
+
+
+
+
+
+
+// -----------相关知识点------------
+		// 面向对象: 
+
+		//入门写法: 
+/*		var obj = new Object();  //创建了一个空的对象
+		obj.name = '小明';  //属性
+		obj.showName = function(){  //方法
+			alert(this.name);
+		};
+
+		var obj2 = new Object();  //创建了一个空的对象
+		obj2.name = '小强';  //属性
+		obj2.showName = function(){  //方法
+			alert(this.name);
+		};*/
+		// 1. 工厂模式: 
+			// function createTab(name) {
+			// 	var obj = {};
+			// 	obj.name = name;
+			// 	obj.showName = function() {
+			// 		alert(1);
+			// 	}
+			// 	return obj;
+			// }
+			// console.log(createTab())
+		// 2. 构造函数模式: 
+			// function Tab(name) {
+			// 	this.name = name;
+			// 	this.showName = function() {
+			// 		alert(1);
+			// 	}
+			// }
+			// console.log(new Tab)
+		// 3. 原型模式(
+			// 优点: 把一些所有实例共用的方法或者属性(不是可变的)在内存中只存一份,而不是像构造函数一样,虽然长得一样,但是由于函数是引用类型的,所以是不同的地址
+			// )
+			// function Tab(name) {
+			// 	this.name = name;
+			// }
+			// Tab.prototype.showName = function() {
+			// 	// body... 
+			// 	console.log(this.name)
+			// }
+			// var zx = new Tab("zx")
+			// console.log(zx)
+
+			// zx.showName();
+//--------------------------------
+
+
+	</script>
+</body>
+</html>
+

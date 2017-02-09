@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象写拖拽</title>
+	<style>
+		#box {
+			width: 300px;
+			height: 300px;
+			background: green;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+	</style>
+	<script>
+		//普通写法: 
+		// 1. 使用on绑定事件
+		// window.onload = function() {
+		// 	var box = document.getElementById("box");
+		// 	box.onmousedown = function (ev) {
+		// 		/* body... */
+		// 		var disX = ev.clientX - this.offsetLeft;
+		// 		var disY = ev.clientY - this.offsetTop;
+
+		// 		document.onmousemove = function (ev) {
+		// 			/* body... */
+		// 			var left = ev.clientX - disX;
+		// 			var top = ev.clientY - disY;
+
+		// 			box.style.left = left + "px";
+		// 			box.style.top = top + "px";
+		// 		}
+		// 		document.onmouseup = function () {
+		// 			/* body... */
+		// 			document.onmousemove = null;
+		// 		}
+		//    return false;
+		// 	}
+		// }
+		//2. 使用addEventListener绑定事件
+		// window.onload = function() {
+		// 	var box = document.getElementById("box");
+		// 	box.addEventListener('mousedown',function (ev) {
+		// 		/* body... */
+		// 		ev.preventDefault();
+		// 		console.log(1)
+		// 		var disX = ev.clientX - this.offsetLeft;
+		// 		var disY = ev.clientY - this.offsetTop;
+
+		// 		function move (ev) {
+		// 			/* body... */
+		// 			var left = ev.clientX - disX;
+		// 			var top = ev.clientY - disY;
+
+		// 			box.style.left = left + "px";
+		// 			box.style.top = top + "px";
+		// 		}
+		// 		document.addEventListener('mousemove',move)
+		// 		document.addEventListener('mouseup',function () {
+		// 			/* body... */
+		// 				document.removeEventListener("mousemove", move);
+		// 			})
+		// 	})
+		// }
+
+		//面向对象写法: 
+		/*转换方法: 
+			step1: 普通方法变型
+				1. 尽量不要出现函数嵌套函数
+				2. 可以有全局变量
+				3. 把onload中不是赋值的语句放到单独函数中
+
+			step2: 改成面向对象
+				1. 全局变量就是属性
+				2. 函数就是方法
+				3. Onload中创建对象
+				4. 改this指向问题(事件或者定时器,尽量要让this指向实例)
+		*/
+		//1. 普通方法的改写
+
+			// window.onload = function() {
+			// 	box = document.getElementById("box");
+			// 	init();
+			// }
+
+
+			// var box = null;
+			// var disX = 0;
+			// var disY = 0;
+
+			// function init () {
+			// 	box.onmousedown = down;
+			// }
+			// function down (ev) {
+			// 	/* body... */
+			// 	disX = ev.clientX - this.offsetLeft;
+			// 	disY = ev.clientY - this.offsetTop;
+			// 	document.onmousemove = move;
+			// 	document.onmouseup = up;
+			// }
+			// function move (ev) {
+			// 	/* body... */
+			// 	var ev = ev || window.event;//兼容火狐浏览器,火狐的事件对象必须通过传参传入,别的浏览器既可以传入,也可以直接用window.event
+			// 	var left = ev.clientX - disX;
+			// 	var top = ev.clientY - disY;
+			// 	box.style.left = left + "px";
+			// 	box.style.top = top + "px";
+			// }
+			// function up() {
+			// 	/* body... */
+			// 	document.onmousemove = null;
+			// 	document.onmouseup = null;
+			// }
+		// ==>改写
+		window.onload = function() {
+			var dragBox = new Drag('box');
+			dragBox.init();
+		}
+
+		function Drag (id) {
+			this.box = document.getElementById(id);
+			this.disX = 0;
+			this.disY = 0;
+
+			Drag.prototype.init = function () {
+				var This = this;
+				this.box.onmousedown = function(ev){
+					This.down(ev);
+				}
+			}
+			Drag.prototype.down = function (ev) {
+				var ev = ev || window.event;//兼容火狐浏览器,火狐的事件对象必须通过传参传入,别的浏览器既可以传入,也可以直接用window.event
+				var This = this;
+				this.disX = ev.clientX - this.box.offsetLeft;
+				this.disY = ev.clientY - this.box.offsetTop;
+				document.onmousemove = function (ev) {
+					This.move(ev);
+				}
+				document.onmouseup = this.up;
+			}
+			Drag.prototype.move = function (ev) {
+				var left = ev.clientX - this.disX;
+				var top = ev.clientY - this.disY;
+				this.box.style.left = left + "px";
+				this.box.style.top = top + "px";
+			}
+			Drag.prototype.up = function () {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+		}			
+			
+
+
+			
+	</script>
+</head>
+<body>
+	HELLO WORLD
+	<div id="box"></div>
+</body>
+</html>
+

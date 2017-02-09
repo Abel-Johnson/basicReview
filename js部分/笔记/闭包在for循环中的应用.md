@@ -47,7 +47,7 @@ for(var i = 0 , len = lists.length ; i < len ; i++){
     (function(index){  
         lists[ index ].onmouseover = function(){  
             alert(index);      
-        };                      
+        };
     })(i);  
 }
 ```

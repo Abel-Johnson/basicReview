@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>几种继承</title>
+</head>
+<body>
+	<script>
+		
+
+
+	//1. 原型继承: 
+		function Person (name) {
+			this.name = name;
+		}
+		Person.prototype.talk = function(){
+			return ("说话");
+		};
+
+
+		function Coder (name) {};
+		Coder.prototype = new Person(?);//核心
+		Coder.prototype.constructor = Coder;
+		
+		// Coder.prototype.coding = function() {return ('敲代码')};
+		// Coder.prototype.name = "程序员";
+
+		// 缺点: 
+		// 1. 来自原型对象的引用属性是所有实例共享的
+		// 2. 创建子类实例时，无法向父类构造函数传参
+		// 3. 不能实现多继承(一个子类继承多个父类的属性的方法)
+
+	//2. 构造函数继承: 
+		function Person (name) {
+			this.name = name;
+			this.talk = function(){
+				return ("说话");
+			};
+		}
+
+		function Coder (name) {
+			Person.call(this,name);
+		}
+
+		//优点: 
+		// 1. 上面两个缺点修复
+		// 2. 多继承
+		//缺点: 
+		// 1. 无法实现函数复用,每个实例都有一个函数的副本,影响性能
+		// 2. 只能继承实例属性和方法,不能继承原型属性和方法
+
+	//3.组合继承: 
+		function Person (name) {
+			this.name = name;
+		}
+		Person.prototype.talk = function(){
+			return ("说话");
+		};//把实例函数都放在原型对象上,以实现函数复用
+
+		function Coder (name) {
+			Person.call(this,name);
+			//继承父类的基本属性和引用属性
+		}
+		Coder.prototype = new Person();//继承父类函数,实现函数复用
+
+		//优点: 
+		1. 不存在引用属性共享的问题
+		2. 函数可复用
+		//缺点: 
+		父类构造函数调用了两次,子类原型上多了一份父类的实例属性(子类实例上通过call添加的那一份覆盖了多出来的这一份原型上的属性),造成内存的浪费
+
+
+	//4. 寄生组合模式(最佳)
+		function Person (name) {
+			this.name = name;
+		}
+		Person.prototype.talk = function(){
+			return ("说话");
+		};//把实例函数都放在原型对象上,以实现函数复用
+
+		function Coder (name) {
+			Person.call(this,name);//继承父类的基本属性和引用属性
+		}
+
+		function F() {}
+		F.prototype = Person.prototype;
+
+		Coder.prototype = new F();//
+
+	//5. 实例继承
+		function Person (name) {
+			this.name = name;
+			this.talk = function(){
+				return ("说话");
+			};
+		}
+
+		function Coder (name) {
+			var instance = new Person(name);
+			instance.name = 'xxx';
+			instance.fn = function() {};
+			return instance;
+		}
+
+		//优点: 
+		// 1. 有new或无new都可以返回有效对象
+		// 2. 可想父类构造函数传参
+		//缺点: 
+		// 1. 不支持多继承
+
+
+	//6. 拷贝继承
+		function Person(name){
+			this.name = name;
+		}
+		Person.prototype.talk = function(){};
+		Person.prototype.walk = function(){};
+
+		function Coder(name) {
+			for (var attr in new Person(name)) {
+				// statement
+				Coder.prototype[attr] = (new Person(name))[attr]
+			}
+		}
+
+		//优点: 多继承
+		//缺点: 效率低, 费内存&无法获取不能被forin的属性
+
+
+
+		var c1 = new Coder('xx');
+		console.log(c1);
+		console.log(c1.name);
+		console.log(c1.talk());
+		// console.log(c1.coding());
+
+	</script>
+</body>
+</html>
+

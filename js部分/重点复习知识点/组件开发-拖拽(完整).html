@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- 
+	组件开发要解决的问题: 
+	1. 传参的不确定,要处理
+ -->
+	<meta charset="UTF-8">
+	<title>拖拽组件开发(完整)</title>
+	<style>
+		#div1{
+			width: 100px; 
+			height: 100px;
+			position: absolute;
+			background: red;
+		}
+		#div2{
+			width: 100px; 
+			height: 100px;
+			position: absolute;
+			background: yellow;
+			left: 100px;
+		}
+		#div3{
+			width: 100px; 
+			height: 100px;
+			position: absolute;
+			background: blue;
+			left: 200px;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var d1 = new Drag();
+			d1.init({
+				id: 'div1'
+			}); 
+
+			var d2 = new Drag();
+			d2.init({
+				id: 'div2', 
+				toDown: function () {
+					document.title = '按下'
+				}
+			}); 
+
+			var d3 = new Drag();
+			d3.init({
+				id: 'div3', 
+				toDown: function () {
+					document.title = '按下'
+				}, 
+				toUp: function () {
+					document.title = '抬起'
+				}
+			}); 
+		}
+		function Drag () {
+			this.ele = null;
+			this.disX = 0;
+			this.disY = 0;
+
+			this.default = {
+				toDown: function () {},
+				toMove: function () {},
+				toUp: function () {},
+			}
+		}
+		Drag.prototype.init= function (opt) {
+			var This = this;
+			extend(this.default, opt);
+			this.ele = document.getElementById(This.default.id);
+			this.ele.onmousedown = function (ev) {
+				This.downFn(ev);
+				This.default.toDown();
+				document.onmousemove = function (ev) {
+					This.moveFn(ev);
+					This.default.toMove();
+				};
+				document.onmouseup = function() {
+					This.upFn();
+					This.default.toUp();
+				}
+				ev.preventDefault();
+			}
+		};
+		Drag.prototype.downFn = function (ev) {
+			this.disX = ev.clientX - this.ele.offsetLeft;
+			this.disY = ev.clientY - this.ele.offsetTop;
+		};
+		Drag.prototype.moveFn = function(ev){
+			this.ele.style.left = ev.clientX - this.disX + "px";
+			this.ele.style.top = ev.clientY - this.disY + "px";
+		};
+		Drag.prototype.upFn = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+
+
+		function extend (targetObj, srcObj) {
+			for (var attr in srcObj) {
+				targetObj[attr] = srcObj[attr];	
+			}
+		}
+
+
+	</script>
+</head>
+
+<body>
+	这是一些box
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+</body>
+</html>
+

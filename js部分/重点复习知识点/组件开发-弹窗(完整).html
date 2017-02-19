@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>弹窗组件</title>
+    <style>
+    .dialog {
+        /*width: 400px;*/
+        border-radius: 4px;
+        border: 1px solid #000;
+        position: absolute;
+        box-sizing: border-box;
+        background: white;
+        z-index: 2;
+        transition: 1s;
+        /*top: 0;
+			left: 0;*/
+    }
+    
+    .head {
+        height: 20px;
+        background: skyblue;
+        line-height: 20px;
+        border-radius: 4px 4px 0 0;
+    }
+    
+    .head .title {
+        float: left;
+    }
+    
+    .head .topBarIco {
+        float: right;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+    }
+    
+    .body {
+        border-radius: 0 0 4px 4px;
+    }
+    
+    #mask {
+        width: 100%;
+        height: 500px;
+        background: black;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="一">
+    <input type="button" value="二">
+    <input type="button" value="三">
+    <!-- <div class="dialog">
+		<div class="head">
+			<span class="title">标题栏</span>
+			<span class="close">❎</span>
+		</div>
+		<div class="body">
+			内容区
+		</div>
+	</div>
+	<div id="mask"></div> -->
+    <script>
+    	window.onload = function() {
+        var btns = document.getElementsByTagName('input');
+        btns[0].onclick = function() {
+          var d1 = new Dialog();
+          d1.init({
+              iNow: 0,
+              //配置参数
+              t: '弹窗',
+              draggable: true
+          });
+        }
+        btns[1].onclick = function() {
+          var d1 = new Dialog();
+          d1.init({
+              iNow: 1,
+              //配置参数
+              t: '公告',
+              w: 200,
+              h: 100,
+              pos: "right"
+          });
+        },
+        btns[2].onclick = function() {
+          var d1 = new Dialog();
+          d1.init({
+              iNow: 2,
+              //配置参数
+              mask: true,
+              draggable: true,
+              dragLimit: true
+          });
+        }
+      }
+        //----------------工具函数---------------
+    function extend(obj1, obj2) {
+        for (var attr in obj2) {
+            if (obj2.hasOwnProperty(attr))
+                obj1[attr] = obj2[attr];
+        }
+    }
+
+    function windowSize() {
+        return {
+            w: document.documentElement.clientWidth,
+            h: document.documentElement.clientHeight
+        }
+    }
+    // ----------构造函数区----------
+    function Dialog() {
+        this.setting = {
+            t: '标题栏',
+            w: 300,
+            h: 300,
+            pos: 'center',
+            mask: false,
+            draggable: false,
+        }
+        this.box = null;
+        this.mask = null;
+        this.disX = 0;
+        this.disY = 0;
+        this.topBar = null;
+
+
+
+    }
+    Dialog.prototype.status = {};
+    Dialog.prototype.init = function(opt) {
+        extend(this.setting, opt);
+        this.create();
+        this.fnClose();
+        this.fnMaxWin();
+        this.fnMinWin();
+        // if(this.setting.draggable){
+        // 		var d = new Drag();
+        // 		d.init();
+        // }
+    }
+
+    Dialog.prototype.create = function() {
+        if (this.status[this.setting.iNow]) {
+            return;
+        }
+        //-----生成结构,填入body
+        this.box = document.createElement('div');
+        this.box.className = "dialog";
+        document.body.appendChild(this.box);
+        this.setData();
+        if (this.setting.mask) {
+            this.createMask()
+        }
+        if (this.setting.draggable) {
+        	this.dragFn();
+        }
+        this.status[this.setting.iNow] = true;
+    }
+    Dialog.prototype.setData = function() {
+        this.box.innerHTML = `<div class="head">
+												<span class="title">${this.setting.t}</span>
+												<span class="close topBarIco">❎</span>
+												<span class="maxWin topBarIco">⏹</span>
+												<span class="minWin topBarIco">⛔️</span>
+											</div>
+											<div class="body">
+												内容区
+											</div>`;
+        this.box.style.width = this.setting.w + "px";
+        this.box.style.height = this.setting.h + "px";
+        //-------
+        switch (this.setting.pos) {
+            case "center":
+                this.box.style.left = (windowSize().w - this.setting.w) / 2 + 'px';
+                this.box.style.top = (windowSize().h - this.setting.h) / 2 + 'px';
+                break;
+            case "right":
+                this.box.style.left = (windowSize().w - this.setting.w) + 'px';
+                this.box.style.top = (windowSize().h - this.setting.h) + 'px';
+                break;
+        }
+    }
+    Dialog.prototype.fnClose = function() {
+    	if (!this.box) return;
+        var closeBtn = this.box.getElementsByClassName('close')[0];
+        var _this = this;
+        closeBtn.onclick = function() {
+            document.body.removeChild(_this.box);
+            if (_this.setting.mask) {
+                document.body.removeChild(_this.mask);
+            }
+            _this.status[_this.setting.iNow] = false;
+        }
+    };
+    Dialog.prototype.fnMaxWin = function(){
+    	if (!this.box) return;
+    	var mwBtn = this.box.getElementsByClassName('maxWin')[0];
+    	var _this = this;
+    	console.log(windowSize())
+    	mwBtn.onclick = function() {
+    		_this.box.style.height = windowSize().h + 'px';
+    		_this.box.style.width = windowSize().w + 'px';
+    		_this.box.style.left = 0;
+    		_this.box.style.top = 0;
+    	}
+    };
+    Dialog.prototype.fnMinWin = function(){
+    	if (!this.box) return;
+    	var miwBtn = this.box.getElementsByClassName('minWin')[0];
+    	var _this = this;
+    	miwBtn.onclick = function() {
+    		// _this.box.style.width = 0;
+    		// _this.box.style.height = 0;
+    		// _this.box.style.left = windowSize().w/2 + 'px' ;
+    		// _this.box.style.top = windowSize().h/2 + 'px';
+    		_this.box.style.transform = 'scale(0)';
+    	}
+    };
+    Dialog.prototype.createMask = function() {
+      this.mask = document.createElement('div');
+      this.mask.id = "mask";
+      document.body.appendChild(this.mask);
+
+      this.mask.style.height = windowSize().h + "px";
+      this.mask.style.width = windowSize().w + "px";
+    };
+    Dialog.prototype.dragFn = function(){
+    	this.topBar = this.box.getElementsByClassName("head")[0];
+    	var _this = this;
+    	this.topBar.onmousedown = function(ev) {
+    		_this.downFn(ev);
+    		document.onmousemove = function (ev) {
+    			_this.moveFn(ev);
+    		};
+    		document.onmouseup = _this.upFn;
+    		ev.preventDefault();
+    	}
+    };
+    Dialog.prototype.downFn = function(ev){
+    	this.disX = ev.clientX - this.box.offsetLeft;
+    	this.disY = ev.clientY - this.box.offsetTop;
+    };
+    Dialog.prototype.moveFn = function(ev){
+    	var x = ev.clientX - this.disX;
+    	var y = ev.clientY - this.disY;
+    	var xMax = windowSize().w - this.setting.w;
+    	var yMax = windowSize().h - this.setting.h;
+    	if (this.setting.dragLimit) {
+    		x < 0 && (x = 0);
+    		y < 0 && (y = 0);
+    		x > xMax && (x = xMax);
+    		y > yMax && (y = yMax);
+    	}
+    	this.box.style.left = x + "px";
+    	this.box.style.top = y + "px";
+    };
+    Dialog.prototype.upFn = function(){
+    	document.onmousemove = null;
+    	document.onmouseup = null;
+    };
+
+
+
+
+    </script>
+</body>
+
+</html>

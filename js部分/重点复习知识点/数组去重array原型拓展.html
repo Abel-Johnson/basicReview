@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>无标题文档</title>
+</head>
+<body>
+	<script>
+		//数组去重,返回删掉的数据的新数组
+		Array.prototype.distinct = function(){
+			// body... 
+			var arr = [];
+			var obj = {};
+			for (var i = 0; i < this.length; i++) {
+				if(obj[this[i]] == undefined) {
+					obj[this[i]] = this[i];
+				} else {
+					arr.push(this[i])
+				}
+			}
+			console.log(obj,arr)
+			return arr;
+		};
+
+		console.log([1,2,"arra",3,1,1,1,2,2,2,2,3,3].distinct())
+	</script>
+</body>
+</html>
+

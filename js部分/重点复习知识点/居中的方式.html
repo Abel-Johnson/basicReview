@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>无标题文档</title>
+	<style>
+		#box{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+		}
+		#content{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+
+		/*方法一: 定位(子类要有固定高)*/
+		/*#box{
+			position: relative;
+		}
+		#content{
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+		}*/
+		/*方法二: 定位(子元素和父元素要有固定高)*/
+		/*#box{
+			position: relative;
+		}
+		#content{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -50px;
+			margin-left: -50px;
+		}*/
+		/*方法三: table+va:middle;*/
+		#box{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+		#content{
+			display: inline-block;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="content"></div>
+	</div>
+</body>
+</html>
+

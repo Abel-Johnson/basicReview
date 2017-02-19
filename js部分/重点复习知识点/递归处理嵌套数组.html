@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>无标题文档</title>
+</head>
+<body>
+	<script>
+		var meta = [1,2,[3,4,[5]],6,[7,[8,9,[10,11,[12]]]]];
+		var x = [];
+
+		function getEle (arr,x) {
+			for (var i = 0; i < arr.length; i++) {
+				if(Array.isArray(arr[i])) {
+					getEle(arr[i],x)
+				} else {
+					x.push(arr[i])
+				}
+			}
+		}
+
+		while (condition) {
+			// statement
+		}
+
+		getEle (meta,x)
+		console.log(x)
+		var resultMap = {};
+function fillArrayII(array,result){
+    var count = array.length;
+    var i = 0;
+    if (!count){
+        return [];
+    }
+    for(;i<count;++i){
+        var temp = array[i];
+        var g = resultMap[temp];
+        console.log(g);
+        if(g){
+            result.push(g);
+	} else {
+            if (Array.isArray(temp)){
+                fillArrayII(temp,result);
+	    } else {
+                result.push(temp);
+	    }
+	}
+    }
+}
+var date1 = new Date();
+var time1 = date1.getTime();
+var r = [];
+getEle(meta,r);
+var date2 = new Date();
+var time2 = date2.getTime();
+console.log('no cache time : ',time2 - time1);
+
+function fn(n){
+	return fn(n-1)+1
+}
+
+
+
+
+
+	</script>
+</body>
+</html>
+

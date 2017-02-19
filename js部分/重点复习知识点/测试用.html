@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>无标题文档</title>
+	<style>
+		.can{
+			border: 1px solid #000;
+			overflow: hidden;
+		}
+		.main,
+		.left,
+		.right{
+			width: 100px;
+			border: 1px solid yellow;
+			padding-bottom: 1000px;
+			margin-bottom: -1000px;
+			float: left;
+		}
+		#wrap{
+			overflow: hidden;
+			border: 1px solid #000;
+		}
+		#block{
+			overflow: hidden;
+			margin-right: -10px;
+		} 
+
+		#block div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*margin-top: -10px;
+			margin-right: -10px;
+			margin-bottom: -10px;
+			margin-left: -10px;*/
+			float: left;
+			margin:10px 10px 10px 0;
+		}
+		#inline-block{
+			display: inline-block;
+			background: yellow;
+		}
+		#span{
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="can">
+		<div class="main">
+			<p>
+				中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容中间内容
+			</p>
+		</div>
+		<div class="left">
+			<p>
+				左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容左边内容
+			</p>
+		</div>
+		<div class="right">
+			<p>
+				右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容右边内容
+			</p>
+		</div>
+	</div>
+	<div id="test">  
+		<div id="wrap"><div id="block">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div></div>
+		<div id="inline-block">内联块级</div>
+		<span id="span">行内元素</span>
+		内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+	</div>
+
+	<script>
+		var arr = [1,2,3,4,5,6];
+		var arr1 = arr.map(function(value,index){
+			return (function(){
+				return function(){
+					alert(value);
+				}
+			})(value)
+		})
+
+		console.log((arr1[0])())
+
+
+var arr = [
+			{
+				a: 1,
+				b: 2
+			},
+			{
+				c: 2
+			},
+			{
+				a: 1,
+				b: 2,
+				c: 3
+			}
+		]
+		
+		function keys(obj){
+			var num = 0;
+			for (var attr in obj) {
+				// statement
+				obj.hasOwnProperty(attr) && num++;
+			}
+			return num;
+		}
+		
+		arr.sort(function(a,b){
+			return keys(a) - keys(b);
+		})
+
+		console.log(arr)
+
+
+	</script>
+
+</body>
+</html>
+

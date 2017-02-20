@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>框选+拖拽</title>
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+		}
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none; 
+		}
+		#desktop {
+			width: 100%;
+			height: 100%;
+			/*border: 10px solid #000;*/
+			box-sizing: border-box;
+			padding: 10px;
+			position: relative;
+		}
+		.choose {
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: 10px solid #000;
+		}
+		.ico-container {
+			position: relative;
+		}
+		.ico-container li {
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			border: 1px solid #f00;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div id="desktop">
+		<ul class="ico-container">
+			<!--
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			 -->
+		</ul>
+	</div>
+	<script src="index.js"></script>
+</body>
+</html>
+

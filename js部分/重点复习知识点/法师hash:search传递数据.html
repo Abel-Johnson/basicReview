@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="联盟" id="btn1"/>
+		<input type="button" value="部落" id="btn2" />
+		<div id="content">
+			<!--<div>
+				<div>职业：法师</div>
+				<div>性别：女</div>
+			</div>-->
+		</div>
+		<nav id="nav">
+			<!--<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>-->
+		</nav>
+		<script>
+			data = [
+				//联盟
+				[
+					{
+						"job":"法师",
+						"sex":"女"
+					},
+					{
+						"job":"战士",
+						"sex":"男"
+					},
+					{
+						"job":"圣骑",
+						"sex":"男"
+					}
+				],[//部落
+					{
+						"job":"巨魔",
+						"sex":"女"
+					},
+					{
+						"job":"祭祀",
+						"sex":"女"
+					},
+					{
+						"job":"吴彦祖",
+						"sex":"男"
+					},
+					{
+						"job":"tong",
+						"sex":"男"
+					}
+				]
+			]
+
+			var search = Number(window.location.search.substr(1)) || 0;
+			var hash = Number(window.location.hash.substr(1)) || 0;
+
+
+			inps = document.getElementsByTagName('input');
+			btns = document.getElementsByTagName('span');
+			tab(search,hash);
+
+			for (var i = 0; i < inps.length; i++) {
+				(function (i){inps[i].onclick = function () {
+					window.location.hash = 0;
+					window.location.search = i;
+				}})(i);
+			}
+
+			window.onhashchange = function () {
+				var hash = Number(window.location.hash.substr(1)) || 0;
+				console.log(search,hash)
+
+				tab(search,hash); 
+				// console.log(1)
+			}
+
+			function tab(a, b) {
+				content.innerHTML = `
+					<div>
+						<div>职业：${data[a][b].job}</div>
+						<div>性别：${data[a][b].sex}</div>
+					</div>
+				`
+				var str = '';
+				for (var i = 0; i < data[a].length; i++) {
+					str += '<span>'+ (i+1) +'</span>';
+				}
+				nav.innerHTML = str;
+
+				
+
+				for (var i = 0; i < btns.length; i++) {
+					(function (i) {btns[i].onclick = function() {
+						window.location.hash = i;			
+					}})(i);
+				}
+
+			}
+
+		</script>
+	</body>
+</html>

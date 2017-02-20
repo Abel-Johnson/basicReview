@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			.file {
+				width: 300px;
+				height: 300px;
+				border:1px solid #000;
+				float: left;
+			}
+		</style>
+		<script>
+			
+		</script>
+	</head>
+
+	<body>
+		<div id="box" class="a b c" >
+			<div class="file" data-id="1">
+				<div>
+					我是文件的图片
+					<em>我是icon</em>
+					<div>
+						<strong id="abc">
+							<span id="son">我是子孙级别</span>
+						</strong>
+					</div>
+				</div>
+				<span>我是文件的标题</span>
+			</div>
+			<div class="file"  data-id="2">
+				<div>
+					我是文件的图片
+					<em>我是icon</em>
+				</div>
+				<span>我是文件的标题</span>
+			</div>
+			<div class="file"  data-id="3">
+				<div>
+					我是文件的图片
+					<em>我是icon</em>
+				</div>
+				<span>我是文件的标题</span>
+			</div>
+		</div>
+		<script>
+			/*
+				作用：找到某一个元素指定id，class，tagName的最近的祖先节点
+				参数说明：
+					element 指定的元素
+					attr 指定的祖先节点的id，class，tagname
+						id 			#id
+						class 		.class
+						tagName 	tagName
+				返回值：
+					最近的祖先节点
+			*/
+
+			//判断某个元素是否有指定的class
+			function hasClass(element,className){
+				var classArr = element.className.split(" ");
+				for( var i = 0; i < classArr.length; i++ ){
+					if( classArr[i] === className ){
+						return true;
+					}
+				}
+				return false;
+			}
+
+			function parent(element,attr){
+				//先找到attr的第一个字符
+				var firstChar = attr.charAt(0);
+				if( firstChar === "." ){
+
+					while(element.nodeType !== 9 && !hasClass(element,attr.slice(1))){
+						//element没有指定的class，那么element就为父级，继续向上找
+						element = element.parentNode;
+					}
+				}else if(firstChar === "#"){
+					while(element.nodeType !== 9 && element.id !== attr.slice(1)){
+						//element没有指定的class，那么element就为父级，继续向上找
+						element = element.parentNode;
+					}
+				}else{
+					while(element.nodeType !== 9 && element.nodeName !== attr.toUpperCase()){
+						//element没有指定的class，那么element就为父级，继续向上找
+						element = element.parentNode;
+					}
+				}
+				return element.nodeType === 9 ? null : element;
+
+			}
+
+			var box = document.getElementById("box");
+			var son = document.getElementById("son");
+
+			console.log( parent(son,".file") );
+			console.log( parent(son,"#abc") );
+			console.log( parent(son,"strong") );
+
+
+			//parent(box,".body");
+
+			//找某一个元素指定的父级（N多层父级）
+
+			//利用事件委托
+			box.onclick = function (ev){
+				var target = ev.target;
+
+				if( target = parent(target,".file") ){
+					//target = parent(target,".file");
+
+					alert( target.dataset.id )
+				}
+
+			};
+			var a;
+			console.log( a = 10 );
+		</script>
+	</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动条</title>
+	<style>
+		#contentWrap{
+			border: 1px solid #000;
+			height: 400px;
+			overflow: hidden;
+			width: 300px;
+			float: left;
+			margin-right: 4px;
+			position: relative;
+		}
+		#content{
+			position: absolute;
+			padding: 10px;
+			width: 100%;
+		}
+		#barWrap{
+			height: 400px;
+			width: 10px;
+			border: 1px solid #000;
+			float: left;
+			background: lightgray;
+			position: relative;
+		}
+		#bar{
+			position: absolute;
+			width: 100%;
+			height: 10px;
+			background: gray;
+			cursor: pointer;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="contentWrap">
+		<div id="content">
+			窗前明月光,<br>疑是地上霜,<br>举头望明月,<br>低头思故乡.<br>
+			窗前明月光,<br>疑是地上霜,<br>举头望明月,<br>低头思故乡.<br>
+			窗前明月光,<br>疑是地上霜,<br>举头望明月,<br>低头思故乡.<br>
+			窗前明月光,<br>疑是地上霜,<br>举头望明月,<br>低头思故乡.<br>
+			窗前明月光,<br>疑是地上霜,<br>举头望明月,<br>低头思故乡.<br>
+			窗前明月光,<br>疑是地上霜,<br>举头望明月,<br>低头思故乡.<br>
+			窗前明月光,<br>疑是地上霜,<br>举头望明月,<br>低头思故乡.<br>
+		</div>
+	</div>
+	<div id="barWrap">
+		<div id="bar"></div>
+	</div>
+
+	<script>
+		//2. 滑块大小
+		var rateH = contentWrap.offsetHeight / content.clientHeight;
+		bar.style.height = barWrap.clientHeight * rateH + 'px';
+
+		var t = 0;//滑块top值;
+		var tMax = barWrap.clientHeight-bar.offsetHeight;
+		var ctMax = content.offsetHeight - contentWrap.clientHeight;
+
+		//1.拖动滑块:
+		document.onmousewheel = function(ev) {
+			ev.preventDefault();
+		}
+		bar.onmousedown = function(ev) {
+			var disY = ev.clientY - this.offsetTop;
+			ev.preventDefault();
+			document.onmousemove = function(ev) {
+				tabShow (t = ev.clientY - disY);
+			}
+			document.onmouseup = function () {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+		}
+		
+
+		//4. 加滚轮事件(由于兼容性,要封装一个函数)
+		function addWheelEv (obj, fnDown, fnUp) {
+			obj.onmousewheel = fn;
+			obj.addEventListener('DOMMouseScroll', fn);
+			function fn (ev) {
+				if (ev.wheelDelta) {
+					console.log('chrome浏览器');
+					ev.wheelDelta > 0 ? fnUp(): fnDown();
+				} 
+				if (ev.detail) {
+					console.log('fireFox浏览器');
+					ev.detail < 0 ? fnUp(): fnDown();
+				}
+				event.preventDefault();
+			}
+		}
+		addWheelEv (content, fnDown, fnUp)
+		addWheelEv (barWrap, fnDown, fnUp)
+		function fnDown () {
+			tabShow (t += 20);
+		}
+
+		function fnUp () {
+			tabShow (t -= 20);
+		}
+		function tabShow (top) {
+			top<0&&(top=0);top>tMax&&(top=tMax);
+			bar.style.top = top + "px";
+			//3. 控制内容区
+			var rateT = ctMax / tMax;
+			content.style.top = -rateT*top + "px"; 
+		}
+		
+	</script>
+</body>
+</html>

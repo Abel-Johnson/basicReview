@@ -54,6 +54,8 @@
 
 <form action="xx(提交地址).xx" method="(提交方法)get/post">
 两种方法中只有**get**方式才会把所填的信息**显示在地址栏**上,post不会显示在地址栏
+> GET和POST方式的对比
+> get通过url传输数据,如果两次请求的是同一个url那么这个url对应的数据会被缓存,这样即使修改后端语句也不会生效,请求的url没变就会去缓存里找上次存下的数据/
 
 search/hash
 search是?开头的键值对: ?key=value & key=value
@@ -98,8 +100,8 @@ xhr.open('Get','http://xxx.php?user=' +username,false)
 **GET方法下**:  
 `xhr.send()`   
 **POST方法下**:  
-post可以提交多种格式的数据,设置一个请求头,告诉后端发送的是什么样的格式的数据   
-				`xhr.setRequestHeader("Content-Type",'application/x-www-form-urlencoded') `  
+post可以提交多种格式的数据,设置一个请求头,**必须**告诉后端发送的是什么样的格式的数据 (本例里是url编码格式)  
+`xhr.setRequestHeader("Content-Type",'application/x-www-form-urlencoded') `  
 最后,  
 `xhr.send("user=" + this.value)`
 

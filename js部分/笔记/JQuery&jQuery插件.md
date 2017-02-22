@@ -4,16 +4,30 @@
  简写为:`$(function(){})`  
  *注意: DOM节点全部加载进去才会触发(并不是资源加载完以后,所以不等价于window.onload)*
 2. 获取元素  `$('选择器')`*有第二个参数,默认document,即从document下获取*,返回一个jq对象
-3. .click(为事件绑定事件处理函数)
+3. .on('click mouseover','选择器字符串',{数据data:xx},为事件绑定事件处理函数(ev.type/data))----可以给事件名添加命名空间(比如'click.tag1'),不影响功能,解绑的时候方便
+4. .on('自定义事件',fn)------触发.trigger('自定义事件'[,{数据data:xx}])
 
+4. > `$("div")[1]`会返回原生元素(\<div></div>)  
+	> `$("div").eq(1)`会返回jq对象,可以直接用jq方法
 
-`$("div")[1]`会返回原生元素(\<div></div>)  
-`$("div").eq(1)`会返回jq对象,可以直接用jq方法
+6. 距离获取: 
+	> $().offset()  返回的是对象
+	> {left，top}
+	获取相对浏览器左边和上边的距离
+	
+	
+	> $().position()  返回的是对象
+	> {left，top}
+	获取相对定位父级的距离
 
-data和attr  
-1. 传一个参数就是读取  
-2. 传两个参数就是设置
+5.	data和attr  
+	1. 传一个参数就是读取  
+	2. 传两个参数就是设置
 
+4. $("input").mouseover({a:1},function (ev){
+		console.log( ev.data );
+		console.log( ev.originalEvent );
+	});
 #### index
 
 

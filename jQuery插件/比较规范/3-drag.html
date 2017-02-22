@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        <style type="text/css">
+        	div{
+        		width: 100px;
+        		height: 100px;
+        		background:red;
+        		position: absolute;
+        		left: 0;
+        		top: 0;
+        	}
+        </style>
+        <link rel="stylesheet" type="text/css" href="./demo.css">
+		<script src="./jquery-3.1.1.js"></script>
+		<script src="./jquery.drag.js"></script>
+		<script>
+
+			//jquery.drag.js 中暴露了一个API drag方法
+
+			/*
+				drag()
+					对匹配到的元素做拖拽
+				参数：
+					对象
+					对象属性说明：
+						left 限制拖拽的左边的距离
+			*/
+
+			$(function (){
+				$(".div1").drag();
+
+				/*
+					指定一个自定义事件名，在拖拽的过程中做一些事情，就可以通过这个事件名绑定事件处理函数
+				*/
+				$(".div1").on("moving",function (ev){
+					console.log("我正在被拖拽");	
+				});
+
+				$(".div2").drag();
+
+				$(".div2").on("moving",function (){
+					console.log("123");	
+				})
+
+				//moving 
+
+				//在拖拽这个div的过程中，让另一个div的width不断增加
+				//在拖拽的过程中做一些事情
+			})
+
+		</script>
+	</head>
+
+	<body>
+		<div class="div1">div1</div>
+		<div class="div2">div2</div>
+	</body>
+</html>

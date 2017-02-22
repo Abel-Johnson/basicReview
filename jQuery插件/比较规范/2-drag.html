@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        <style type="text/css">
+        	div{
+        		width: 100px;
+        		height: 100px;
+        		background:red;
+        		position: absolute;
+        		left: 0;
+        		top: 0;
+        	}
+        </style>
+        <link rel="stylesheet" type="text/css" href="./demo.css">
+		<script src="./jquery-3.1.1.js"></script>
+		<script src="./jquery.drag.js"></script>
+		<script>
+
+			//jquery.drag.js 中暴露了一个API drag方法
+
+			/*
+				drag()
+					对匹配到的元素做拖拽
+				参数：
+					对象
+					对象属性说明：
+						left 限制拖拽的左边的距离
+			*/
+
+			$(function (){
+				$("div").drag();
+			})
+
+		</script>
+	</head>
+
+	<body>
+		<div></div>
+	</body>
+</html>

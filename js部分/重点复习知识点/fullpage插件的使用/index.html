@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>无标题文档</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <script src="http://cdn.staticfile.org/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <style>
+    #menu {
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        list-style-type: none;
+        z-index: 70;
+    }
+    
+    #menu li {
+        float: left;
+        margin: 0 10px 0 0;
+        font-size: 14px;
+    }
+    
+    #menu a {
+        float: left;
+        padding: 10px 20px;
+        background-color: #fff;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    #menu .active a {
+        color: #fff;
+        background-color: #333;
+    }
+    
+    .section {
+        font: 50px 'microsoft yahei';
+        color: white;
+        text-align: center;
+    }
+    
+    .section2 p {
+        position: relative;
+        bottom: -100%;
+    }
+    /*#fullpage>div:nth-of-type(1) {
+        background: url(./images/1.jpg) 50%;
+    }
+    
+    #fullpage>div:nth-of-type(2) {
+        background: url(./images/2.jpg) 50%;
+    }
+    
+    #fullpage>div:nth-of-type(3) {
+        background: url(./images/3.jpg) 50%;
+    }
+    
+    #fullpage>div:nth-of-type(4) {
+        background: url(./images/4.jpg) 50%;
+    }*/
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li data-menuanchor="page1" class="active"><a href="#page1">第一屏</a></li>
+        <li data-menuanchor="page2"><a href="#page2">第二屏</a></li>
+        <li data-menuanchor="page3"><a href="#page3">第三屏</a></li>
+        <li data-menuanchor="page4"><a href="#page4">第四屏</a></li>
+    </ul>
+    <div id="fullpage">
+        <div class="section section1">第一屏
+            <p>回调函数1演示</p>
+        </div>
+        <div class="section section2">第二屏
+            <p>回调函数2演示</p>
+        </div>
+        <div class="section section3">
+            <div class="slide">第三屏的第一屏</div>
+            <div class="slide">第三屏的第二屏</div>
+            <div class="slide">第三屏的第三屏</div>
+            <div class="slide">第三屏的第四屏</div>
+        </div>
+        <div class="section section4">第四屏
+            <p>回调函数4演示</p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('#fullpage').fullpage({
+            'verticalCentered': true,
+            'resize': true,
+            'sectionsColor': ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+            // 'anchors': ['http://www.baidu.com','http://tabao.com'],
+            'scrollingSpeed': 1000, //动画过渡时间
+            // 'easing': 'easeOutQuart'
+            'continuousVertical': true,
+            'navigation': true,
+            'slidesNavigation': true,
+            afterLoad: function(anchorLink, index) {
+                if (index == 1) {
+                    $('.section2').find('p').delay(500).animate({
+                        left: '0'
+                    }, 1500, 'easeOutExpo');
+                }
+                if (index == 2) {
+                    $('.section2').find('p').delay(500).animate({
+                        bottom: '0'
+                    }, 1500, 'easeOutExpo');
+                }
+                if (index == 4) {
+                    $('.section4').find('p').fadeIn(2000);
+                }
+            },
+            onLeave: function(index, direction) {
+                if (index == '1') {
+                    $('.section1').find('p').delay(500).animate({
+                        left: '-120%'
+                    }, 1500, 'easeOutExpo');
+                }
+                if (index == '2') {
+                    $('.section2').find('p').delay(500).animate({
+                        bottom: '-100%'
+                    }, 1500, 'easeOutExpo');
+                }
+                if (index == '4') {
+                    $('.section4').find('p').fadeOut(2000);
+                }
+            },
+
+            anchors: ['page1', 'page2', 'page3', 'page4'],
+            menu: '#menu'
+        });
+    });
+    </script>
+</body>
+
+</html>

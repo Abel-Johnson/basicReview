@@ -1,0 +1,7 @@
+fullpage：
+http://www.dowebok.com/demo/2014/77/
+
+1. 先引入jq
+2. 引入插件 + css文件
+3. 插件提供了那些API
+4. 看一下插件提供的例子

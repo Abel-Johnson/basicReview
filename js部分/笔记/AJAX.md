@@ -36,7 +36,7 @@
 	```
 9. 一些状态码:
 	* 200请求成功
-	* 304成功,(特殊的,走的缓存)
+	* 304成功,(特殊的,走的重定向缓存)
 		
 
 
@@ -76,7 +76,7 @@ var xhr = new XMLHttpRequest;
 
 2. 链接地址,准备数据  
 xhr.open('Get','http://xxx.php?user=' +username,false) 
-	xhr.open('Post','http://xxx.php?user=' ,true)  
+	xhr.open('Post','http://xxx.php' ,true)  
 	*上边第三个参数是是否异步,false是同步,true是异步*
 
 3. 服务器响应请求,所有请求响应完毕后会触发一个事件  (该事件要提前绑定好,有可能响应速度很快)
@@ -244,7 +244,7 @@ post方法: 由于设置了请求头,就不需要url编码了
 <input type="file" name="(后端约定好的)" id="fileInput">
 <input type="button" value="上传" id="btn">
 <script>
-	//要用post方法  
+	//要用post方法
 	btn.onclick = function() {
 		var xhr = new XMLHttpRequest;
 		xhr.open("post", url, true);

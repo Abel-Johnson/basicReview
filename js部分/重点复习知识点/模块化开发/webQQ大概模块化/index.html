@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>无标题文档</title>
+	<style type="text/css">
+		#dialog{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: gray;
+			display: none;
+		}
+		#dragD{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			width: 10px;
+			height: 10px;
+			background-color: yellow;
+		}
+		#div3{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: blue;
+			top: 0;
+			right: 0;
+		}
+	</style>
+	<script src="sea/sea.js"></script>	
+	<script>
+		seajs.use('./js/main.js',function(ex){
+			
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="弹窗" id="btn"/>
+	<div id="dialog">
+		<div id="dragD"></div>
+	</div>
+	<div id="div3"></div>
+</body>
+</html>
+

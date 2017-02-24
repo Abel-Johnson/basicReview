@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     concat: {
       webqq: {
       	files:{
-      		'dist/main.js':['.build/js/drag.js','.build/js/main.js','.build/js/range.js','.build/js/scale.js']
+      		'dist/main.js':['.build/js/main.js','.build/js/drag.js','.build/js/scale.js','.build/js/range.js']
       	}
       }
     }
@@ -26,20 +26,20 @@ module.exports = function(grunt) {
     		}
     	}
     }
-    ,
-    babel: {
-	    webqq: {
-	    	options: {
-            presets: ['babel-preset-es2015']
-        },
-	      files: {
-	      	'js/drag.js':'js/drag.js',
-	      	'js/main.js':'js/main.js',
-	      	'js/range.js':'js/range.js',
-	      	'js/scale.js':'js/scale.js'
-	      }
-	    }
-	  }
+   //  ,
+   //  babel: {
+	  //   webqq: {
+	  //   	options: {
+   //          presets: ['babel-preset-es2015']
+   //      },
+	  //     files: {
+	  //     	'js/drag.js':'js/drag.js',
+	  //     	'js/main.js':'js/main.js',
+	  //     	'js/range.js':'js/range.js',
+	  //     	'js/scale.js':'js/scale.js'
+	  //     }
+	  //   }
+	  // }
   });
 
   // 加载包含 "concat" 任务的插件。

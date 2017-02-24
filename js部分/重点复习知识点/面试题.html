@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+// -----------------------------------
+// 1.不借助第三个参数交换两个变量的值
+	var a = 1;
+	var b = 2;
+	//两个是数字的话
+	a = a+b;
+	b = a-b;
+	a = a-b;
+	//但是两个不是数字了,就不能用加号了
+
+	//完美!!解决
+	var a = 'A';
+	var b = 'B';
+	
+	a = [a, b];
+	b = a[0];
+	a = a[1]
+// -----------------------------------
+
+//2. n=50,不借助for循环生成1到50的数组
+
+	var n = 5;
+
+
+function show (n) {
+	//方法一:
+	// if(n===0){
+	// 	return [];
+	// }
+	// return show(n-1).concat([n]);
+
+	//方法二
+	var arr = [];
+	arr.length = n+1;
+	var str = arr.join('a');
+	var arr1 = [];
+
+	str.replace(/a/g,function ($0,$1) {
+		// arr1[$1] = $1+1;
+		//也可以
+		// arr.push($1+1)
+		//也可以
+		arr1.unshift(n--);
+	})
+	return arr1;
+}
+
+console.log(show(n))
+// -----------------------------------
+// 3. 大于100返回100,小于100返回自身
+var i = 500;
+function xxxx (i) {
+	// return i<100?i:100;
+	// return Math.min(i,100)
+	/*return [100,i].sort(function (a,b) {
+		return a-b;
+	})[0];*/
+	// return 3位返100.两位返元数字
+
+	var a = i<100&&i;
+	return a||100;
+}
+
+console.log(xxxx(i))
+// -----------------------------------
+// 4. 一些字符串&&正则表达式的题
+
+		//字符串转驼峰
+		var str = 'hello-world-haha';
+		//统计字符出现情况
+		var str1 = 'afbbbsdbdsddsasaasdabdsabdsadb';
+		//一串数字转成千分符
+		var str2 = '1234543535223'//转成千分符
+
+
+		function fn2 (str) {
+			// var arr = [];
+			// var d = str.length%3;
+			// if(d){
+			// 	arr.push(str.substr(0,d))
+			// 	str = str.substring(d);
+			// }
+			// for (var i = 0; i < str.length; i++) {
+			// 	if(!(i%3)){
+			// 		arr.push(str.substr(i,3))
+			// 	}
+			// }
+			// return arr.join(',')
+
+			var re = /(?=(?=\B)(\d{3})+$)/g;
+			return str.replace(re,',');
+		}
+		console.log(fn2(str2))
+
+
+
+		function change(str) {
+			// var arr = str.split('-');
+			// for (var i = 1; i < arr.length; i++) {
+			// 	arr[i] = (arr[i]).charAt(0).toUpperCase()+arr[i].slice(1);
+			// }
+			// return arr.join('');
+
+			var re = /-([a-z])/g
+			return str.replace(re,function($0,$1){
+				return $1.toUpperCase();
+			})
+		}
+
+		console.log(change(str))
+
+		function fn1(str){
+			var obj = {};
+			// for (var i = 0; i < str.length; i++) {
+			// 	if(!obj[str.charAt(i)]){
+			// 		obj[str.charAt(i)] = 1;
+			// 	} else {
+			// 		obj[str.charAt(i)] ++;
+			// 	}
+			// }
+			var arr = str.split('');
+			str = arr.sort().join('');
+			console.log(str)
+			var re = /([a-zA-Z])\1*/g;
+
+			console.log(str.replace(re,function($0,$1){
+				obj[$1] = $0.length;
+			}))
+
+			return obj;
+		}
+
+		console.log(fn1(str1))
+// -----------------------------------
+// 5. 算出 斐波那契数列 指定位上的 值
+// 斐波那契数列: 1 1 2 3 5 8 13 21 34 ....
+function getValue (index) {
+	//方法一:递归
+	// if(index<=2) return 1;
+	// return getValue(index-1)+getValue(index-2);
+	//方法二:迭代
+	var num1 = 1;
+	var num2 = 1;
+	for (var i = 0; i < index-2; i++) {
+		var num3 = num1+num2;//第四位两次,第i位就是i-2次
+		var num1 = num2;
+		var num2 = num3;
+	}
+	return num3;
+}
+var i = 8;
+console.log('斐波那契数列的第'+i+'位是'+ getValue(i))
+//--------------------------------------
+// 6. 排序
+var ar = [4,5,1,7,2];
+function sortFn (arr) {
+	// A.冒泡排序
+			// for (var i = 0; i < arr.length-1; i++) {
+			// 	var c = true;
+			// 	for (var j = 0; j < arr.length-i; j++) {
+			// 		if(arr[j]>arr[j+1]){
+			// 			c = false;
+			// 			arr[j] = [arr[j+1],arr[j]]
+			// 			arr[j+1] = arr[j][1];
+			// 			arr[j] = arr[j][0];
+			// 		}
+			// 	}
+			// 	if (c) {
+			// 		break;
+			// 	}
+			// }
+			// return arr;
+	// B.快速排序
+
+			// if (!arr.length) {
+			// 	return [];
+			// }
+
+			// var arrL = [];
+			// var arrR = [];
+			// var temp = arr[0];
+			// for (var i = 1; i < arr.length; i++) {
+			// 	arr[i]<temp&&arrL.push(arr[i]);
+			// 	arr[i]>=temp&&arrR.push(arr[i]);
+			// }
+			// return sortFn(arrL).concat(temp,sortFn(arrR));
+
+	// c.选择排序
+			if (arr.length===1) {return arr}
+				var min = arr[0];
+				var mini = 0;
+			for (var i = 1; i < arr.length; i++) {
+				if(arr[i]<min){
+					min = arr[i];
+					mini = i;
+				}
+			}
+			arr.splice(mini, 1);
+			return [min].concat(sortFn(arr));
+
+}
+console.log(sortFn (ar))
+
+	</script>
+</body>
+</html>

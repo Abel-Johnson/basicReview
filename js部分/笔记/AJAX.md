@@ -36,15 +36,32 @@
 	```
 9. 一些状态码:
 	* 200请求成功
-	* 304成功,(特殊的,走的重定向缓存)
-		
-
+	* 304成功,(特殊的,表示内容未被修改,可使用本地缓冲,走的重定向缓存)
+	
+	```javascript	
+	var xhr = new XMLHttpRequest; 
+	xhr.onreadystatechange = function(){
+	//可以通过readyState判断数据是否返回,后面用onload事件代替了这个方法
+		if(xhr.readyState == 4){ 
+		 	if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){ //通过状态码在200~300或者304,判断出请求成功,执行语句,否则请求失败
+		 		//响应成功返回 可做一定处理，比如 
+		 		alert(xhr.responseText); 
+		 	} else {
+		 		alert("Request was unsuccessful " + xhr.status); 
+		 	}
+		}
+	}; 
+	xhr.open("get","example.jsp",true); 
+	xhr.send(null);
+	另外在接收到响应之前还可以调用abort方法来取消异步操作：
+	xhr.abort
+	```
 
 > **关于apache配置:**
 > 
 > 1. 有冲突,改端口
 > 2. 把有个地方的配置改成all
-> 3. 关于修改根目录,详见同级文件夹里的apache说明txt文件
+> 3. 关于修改根目录,详见同级文件夹里的`apache说明.txt`
 
 ---
 
@@ -75,12 +92,12 @@ ajax对象: XMLHttpRequest构造函数xhr
 
 原生方法:
 
-1. 构造对象  
-var xhr = new XMLHttpRequest;
-
-2. 链接地址,准备数据  
-xhr.open('Get','http://xxx.php?user=' +username,false) 
-	xhr.open('Post','http://xxx.php' ,true)  
+1. 构造对象
+	var xhr = new XMLHttpRequest;
+	
+2. 链接地址,准备数据
+	xhr.open('Get','http://xxx.php?user=' +username,false) 
+	xhr.open('Post','http://xxx.php' ,true)
 	*上边第三个参数是是否异步,false是同步,true是异步*
 
 3. 服务器响应请求,所有请求响应完毕后会触发一个事件  (该事件要提前绑定好,有可能响应速度很快)
@@ -265,8 +282,22 @@ post方法: 由于设置了请求头,就不需要url编码了
 	}
 </script>
 ```
+##### Ajax适用场景
+1. 表单驱动的交互
+1. 深层次的树的导航
+1. 快速的用户与用户间的交流响应
+1. 类似投票、yes/no等无关痛痒的场景
+1. 对数据进行过滤和操纵相关数据的场景
+1. 普通的文本输入提示和自动完成的场景
 
-----
+##### Ajax不适用场景
+1. 部分简单的表单
+1. 搜索
+1. 基本的导航
+1. 替换大量的文本
+1. 对呈现的操纵
+
+--------
 
 # 跨域
 1. 同源策略(域名,协议,端口()http:80;https:443;ftp:21 22 23相同)  

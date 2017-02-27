@@ -376,6 +376,23 @@
     // alert(1111)
     console.log(data)
     console.log(sort(data,'staytime'));
+
+//10. 封装一个cookie取用方法
+function getCookie (c_name) {
+	var c = document.cookie;
+	if(c) {
+		c_index = c.indexOf(c_name+'=');
+		if(c_index!==-1) {
+			c_start = c_index+c_name.length+1;
+			c_end = c.indexOf(';', c_start);
+			if (c_end===-1) {
+				c_end = c.length;
+			}
+			return unescape(c.substring(c_start, c_end));
+		}
+	}
+	return '';
+}
     </script>
 </body>
 

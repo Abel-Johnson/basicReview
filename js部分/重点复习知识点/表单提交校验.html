@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>表单提交校验</title>
+</head>
+<body>
+	<!-- 利用JavaScript检查用户注册信息是否正确，在以下情况不满足时报错并阻止提交表单：
+
+	用户名必须是3-10位英文字母或数字；
+
+	口令必须是6-20位；
+
+	两次输入口令必须一致。 -->
+
+	<!-- HTML结构 -->
+	<form id="test-register" action="#" target="_blank" onsubmit="return checkRegisterForm()">
+	    <p id="test-error" style="color:red"></p>
+	    <p>
+	        用户名: <input type="text" id="username" name="username">
+	    </p>
+	    <p>
+	        口令: <input type="password" id="password" name="password">
+	    </p>
+	    <p>
+	        重复口令: <input type="password" id="password-2">
+	    </p>
+	    <p>
+	        <button type="submit">提交</button> <button type="reset">重置</button>
+	    </p>
+	</form>
+	<script type="text/javascript">
+		'use strict';
+		var checkRegisterForm = function () {
+			var reUn = /^[a-zA-Z\d]{3,10}$/;
+			var rePw = /^\.{6,20}$/;
+			var p2 = document.getElementById('password-2')
+			if(reUn.test(username.value)&&rePw.test(password.value)&&(p2.value === password.value)) {
+				return true;
+			}
+				alert('用户名必须是3-10位英文字母或数字；')				
+				return false;
+		}
+
+	</script>
+</body>
+</html>
+

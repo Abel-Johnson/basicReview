@@ -78,6 +78,7 @@
 			return ("说话");
 		};//把实例函数都放在原型对象上,以实现函数复用
 
+
 		function Coder (name) {
 			Person.call(this,name);//继承父类的基本属性和引用属性
 		}
@@ -86,7 +87,13 @@
 		F.prototype = Person.prototype;
 
 		Coder.prototype = new F();//
-
+		//可以封装一个函数: 
+		function inherits(Child, Parent) {
+		    var F = function () {};
+		    F.prototype = Parent.prototype;
+		    Child.prototype = new F();
+		    Child.prototype.constructor = Child;
+		}
 	//5. 实例继承
 		function Person (name) {
 			this.name = name;

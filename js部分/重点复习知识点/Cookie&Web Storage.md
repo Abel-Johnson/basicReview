@@ -5,6 +5,13 @@
 - cookie 是访问过的网站创建的文件，用于存储浏览信息，例如个人资料信息。
 - 从JavaScript的角度看，cookie 就是一些字符串信息。这些信息存放在客户端的计算机中，用于客户端计算机与服务器之间传递信息。
 - 在JavaScript中可以通过 document.cookie 来读取或设置这些信息。由于 cookie 多用在客户端和服务端之间进行通信，所以除了JavaScript以外，服务端的语言（如PHP）也可以存取 cookie。
+- 举个例子:
+	- Cookie是由服务器发送的key-value标示符。因为HTTP协议是无状态的，
+	- 但是服务器要区分到底是哪个用户发过来的请求，就可以用Cookie来区分。
+	- 当一个用户成功登录后，服务器发送一个Cookie给浏览器，例如user=ABC123XYZ(加密的字符串)...，此后，浏览器访问该网站时，会在请求头附上这个Cookie，服务器根据Cookie即可区分出用户。
+	- Cookie还可以存储网站的一些设置，例如，页面显示的语言等等。
+
+
 
  
 
@@ -137,16 +144,20 @@ getDate()方法得到当前本地月份中的某一天，接着加上30就是我
 
 ### 　　三.cookie 安全性
 
-　　通常 cookie 信息都是使用HTTP连接传递数据，这种传递方式很容易被查看，所以 cookie 存储的信息容易被窃取。假如 cookie 中所传递的内容比较重要，那么就要求使用加密的数据传输。
+- 通常 cookie 信息都是使用HTTP连接传递数据，这种传递方式很容易被查看，所以 cookie 存储的信息容易被窃取。假如 cookie 中所传递的内容比较重要，那么就要求使用加密的数据传输。
 
-　　所以 cookie 的这个属性的名称是“**`secure`**”，默认的值为空。如果一个 cookie 的属性为secure，那么它与服务器之间就通过HTTPS或者其它安全协议传递数据。语法如下：
+	> 　　所以 cookie 的这个属性的名称是“**`secure`**”，默认的值为空。如果一个 cookie 的属性为secure，那么它与服务器之间就通过HTTPS或者其它安全协议传递数据。语法如下：
+	> 
+	> 　　`document.cookie = "username=Darren;secure"`  
+	> 　　把cookie设置为secure，只保证 cookie 与服务器之间的数据传输过程加密，而保存在本地的 cookie文件并不加密。如果想让本地cookie也加密，得自己加密数据。
+	> 
+	> 　　注：就算设置了secure 属性也并不代表他人不能看到你机器本地保存的 cookie 信息，所以说到底，别把重要信息放cookie就对了
+　　　
+- 如果引入的第三方的JavaScript中存在恶意代码，则www.foo.com网站将直接获取到www.example.com网站的用户登录信息。
+	> 	为了解决这个问题，服务器在设置Cookie时可以使用httpOnly，设定了httpOnly的Cookie将不能被JavaScript读取。这个行为由浏览器实现，主流浏览器均支持httpOnly选项，IE从IE6 SP1开始支持。
+	> 	为了确保安全，服务器端在设置Cookie时，应该始终坚持使用httpOnly。
 
-　　`document.cookie = "username=Darren;secure"`  
-　　把cookie设置为secure，只保证 cookie 与服务器之间的数据传输过程加密，而保存在本地的 cookie文件并不加密。如果想让本地cookie也加密，得自己加密数据。
 
-　　注：就算设置了secure 属性也并不代表他人不能看到你机器本地保存的 cookie 信息，所以说到底，别把重要信息放cookie就对了
-
-　　 
 
 ### 　　四.cookie 编码细节
 

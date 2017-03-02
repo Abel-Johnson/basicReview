@@ -1,60 +1,59 @@
-<!DOCTYPE html>
-<html>
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"><title>Writing to Same Doc</title>  
+  
+<script language="JavaScript">  
+  //重新写入函数  
+  function RepeatWrite(){  
+    // 保存写入的内容  
+    var newContent = "<html><head><title>A New Doc</title></head>"  
+    newContent += "<body bgcolor='aqua'><h1>This document is brand new.</h1>"  
+    newContent += "Click the Back button to see original document."  
+    newContent += "</body></html>"  
+    // 写入新的内容  
+    document.write(newContent);  
+    document.close();  
+  }  
+    
+</script>  
+</head>  
+<body>  
+  <form>  
+    <!--单击按钮调用写入函数-->  
+    <!--<input type="button" value="Replace Content" onClick="RepeatWrite()">  
+  </form>  
+</body>  
+</html>   -->
 
-<head>
-    <meta charset="UTF-8">
-    <title>无标题文档</title>
-    <script type="text/javascript" src="tools/jquery-3.1.1.js"></script>
-</head>
 
-<body>
-    <form id="test-form" action="#0" onsubmit="return false;">
-        <p>
-            <label>Name:
-                <input name="name">
-            </label>
-        </p>
-        <p>
-            <label>Email:
-                <input name="email">
-            </label>
-        </p>
-        <p>
-            <label>Password:
-                <input name="password" type="password">
-            </label>
-        </p>
-        <p>Gender:
-            <label>
-                <input name="gender" type="radio" value="m" checked> Male</label>
-            <label>
-                <input name="gender" type="radio" value="f"> Female</label>
-        </p>
-        <p>
-            <label>City:
-                <select name="city">
-                    <option value="BJ" selected>Beijing</option>
-                    <option value="SH">Shanghai</option>
-                    <option value="CD">Chengdu</option>
-                    <option value="XM">Xiamen</option>
-                </select>
-            </label>
-        </p>
-        <p>
-            <button type="submit">Submit</button>
-        </p>
-    </form>
-    <script type="text/javascript">
-    $('#test-form').click(function(){var json = {};
-        var inps = $('#test-form').find('[name]');
-        console.log(inps)
-        inps.each(function(index, value) {
-            json[value.name] = value.value;
-        })
-        console.log(json)
-        json = JSON.stringify(json)
-      })
-    </script>
-</body>
-
-</html>
+<html xmlns="http://www.w3.org/1999/xhtml"><title>Writing to Subwindow</title>  
+<script language="JavaScript">  
+  //生命一个全局变量  
+  var newWindow;  
+  //打开一个新的窗口  
+  function makeNewWindow(){  
+    newWindow = window.open("","","status,height=200,width=300")  
+  }  
+  //判断新窗口是否关闭，如果关闭重新打开  
+  function subWrite(){  
+    // make new window if someone has closed it  
+    if(newWindow.closed){  
+      makeNewWindow()  
+    }  
+    // 是新窗口获得焦点  
+    newWindow.focus()  
+    //保存写入内容  
+    var newContent = "<html><head><title>A New Doc</title></head>"  
+    newContent += "<body bgcolor='coral'><h1>This document is brand new.</h1>"  
+    newContent += "</body></html>"  
+    // 将HTML代码写入新窗口中  
+    newWindow.document.write(newContent)  
+    newWindow.document.close()    // close layout stream  
+  }  
+</script>  
+</head>  
+  
+<body onLoad="makeNewWindow()">  
+  <form>  
+    <input type="button" value="Write to Subwindow" onClick="subWrite()">  
+  </form>  
+</body>  
+</html> 

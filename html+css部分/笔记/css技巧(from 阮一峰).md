@@ -73,27 +73,27 @@ CSS代码如下：
 
 ```css
 　　.logo {
-　　　　display: block;
-　　　　text-align: center;
-　　　　display: block;
-　　　　text-align: center;
-　　　　vertical-align: middle;
-　　　　border: 4px solid #dddddd;
-　　　　padding: 4px;
-　　　　height: 74px;
-　　　　width: 74px; 
-　　　}
-　　.logo * {
-　　　　display: inline-block;
-　　　　height: 100%;
-　　　　vertical-align: middle; 
-　　　}
-　　.logo .photo {
-　　　　height: auto;
-　　　　width: auto;
-　　　　max-width: 100%;
-　　　　max-height: 100%; 
-　　　}
+        display: block;
+        text-align: center;
+        /*vertical-align: middle;*/
+        border: 4px solid #dddddd;
+        padding: 4px;
+        height: 100px;
+        width: 100px;
+    }
+    
+    .logo * {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+    
+    .logo .photo {
+        height: 50px;
+        width: 50px;
+        max-width: 100%;
+        max-height: 100%;
+    }
 ```
 
 ## CSS阴影

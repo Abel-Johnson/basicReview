@@ -22,6 +22,7 @@
      <tbody>
           <tr>
                <td colspan="2"><td>
+          </tr>
      </tbody>
 </table>
 ```
@@ -40,14 +41,12 @@
 ![图示](imgs/fieldset.png)
 
 - id定义的规则：
-
     - 下划线，字母开头（下划线不推荐，css2.0会限制使用）
-
     - 数字，空格，连字号
 - XHTML（头部在sublime里敲html:xt，按tab自动生成）
     - id属性代替name属性
     - <xxx  />   注意应该追加一个空格
-    - css中   a｛text-decoration：   none｝   也应该追加一个空格
+    - css中   a｛text-decoration: none｝   也应该追加一个空格
 
 ## 之前印象笔记记过的css部分
 - transition:1s    代表过渡动画持续1秒，常配合javascript使用
@@ -96,7 +95,7 @@ li{list-style-image:url();
         - 块在一行显示
         - 行内属性支持宽高
         - 没有定义宽度是内容撑开宽度
-- a:link/visited/hover/active
+- a:link/visited/hover/active(**lv**包**ha**o用)
 - 清除浮动的方式
    - br可以清浮动：<br  clear = "all"/>
    - after伪类清浮动：
@@ -176,12 +175,12 @@ li{list-style-image:url();
 
     - 多层嵌套时，越往里的元素background背景越在上边
 
-```css
-#nav li{float: left;height: 28px; }
-#nav a{float:left;height:28px;font-size: 16px;color: #ffffff;background: url(../images/nav-btn.png) repeat-x 0 -28px;}
-#nav strong{float:left;height:28px;background: url(../images/nav-btn.png) no-repeat right 0;}
-#nav span{float:left;height:28px;background: url(../images/nav-btn.png) no-repeat 0 -56px ;padding: 0 16px;}
-```
+	```css
+	#nav li{float: left;height: 28px; }
+	#nav a{float:left;height:28px;font-size: 16px;color: #ffffff;background: url(../images/nav-btn.png) repeat-x 0 -28px;}
+	#nav strong{float:left;height:28px;background: url(../images/nav-btn.png) no-repeat right 0;}
+	#nav span{float:left;height:28px;background: url(../images/nav-btn.png) no-repeat 0 -56px ;padding: 0 16px;}
+	```
 
 
 ## 关于字体的复合样式
@@ -459,6 +458,7 @@ p {
 	-webkit-line-clamp: 4;
 	-webkit-box-orient: vertical;
 }
+```
 	/*
 	这里用了一个不是很常见的属性 -webkit-line-clamp  
 	在WebKit浏览器或移动端（绝大部分是WebKit内核的浏览器）的页面实现比较简单，可以直接使用WebKit的CSS扩展属性(WebKit是私有属性) -webkit-line-clamp ；注意：这是一个 不规范的属性（ unsupported WebKit property ），它没有出现在 CSS 规范草案中。
@@ -471,5 +471,5 @@ p {
 	
 	3，text-overflow: ellipsis; ，可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。
 */
-```
+
 

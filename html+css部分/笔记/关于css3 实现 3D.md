@@ -40,4 +40,3 @@ transform-style：preserve-3d三维效果（默认flat二维效果），只影�
 
 2. 由里边那些div,通过`定位和3d变换`拼接好一个完整的3D图形,
 3. **容器container**整体做3D变换
-4. 

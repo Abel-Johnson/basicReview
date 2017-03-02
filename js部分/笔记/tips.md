@@ -1,20 +1,4 @@
 # Tips
-1. 如果既想外联又想把js写在body的最后面,就这么写: 
-
-	```html
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<link rel="stylesheet" href="xx.css">
-	</head>
-	<body>
-		....
-		<script src="xxx.js"></script>
-	</body>
-</html>
-```
 
 2. `getElementById("xx")`,找不到会返回null
 3. 变量命名规范:
@@ -34,5 +18,4 @@
 	}
 	```
 	
-5. 
 

@@ -16,7 +16,7 @@ IE下  `filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff
 background-image: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 35%, rgba(255,0,0,0.6) 50%, rgba(255,255,255,0) 65%, rgba(255,255,255,0) 100%);
 ```
 
-### 镜像渐变
+### 径向渐变
 > 格式:  radial-gradient([<>]? [<形状> || <大小>,]? <点>, <点>…);
 
 参数  	

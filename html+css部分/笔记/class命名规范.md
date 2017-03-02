@@ -13,7 +13,8 @@
 	> * 底部 footer -----------------用于底部
 4. `class-name`或者`class_name`
 4. 常见的
-<table width="100%" border="0" class="mm_table" cellspacing="1" cellpadding="0">
+
+	<table width="100%" border="0" class="mm_table" cellspacing="1" cellpadding="0">
     <tbody>
         <tr>
             <th width="40%">CSS样式命名</th>
@@ -282,9 +283,10 @@
             <td>论坛</td>
         </tr>
     </tbody>
-</table>
+	</table>
 
 5. css命名
+
 	<table width="100%" border="0" class="mm_table" cellspacing="1" cellpadding="0">
     <tbody>
         <tr>
@@ -332,7 +334,7 @@
             <td>打印</td>
         </tr>
     </tbody>
-</table>
+	</table>
 
 6. 其他说明
 	我们最好遵循，**主要的、重要的、特殊的、最外层**的盒子用“#”(井号)选择符号开头命名，其它都用“.”（小写句号）选择符号开头命名，同时考虑命名的CSS选择器在HTML中重复使用调用。

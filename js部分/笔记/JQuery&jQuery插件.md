@@ -8,7 +8,7 @@
 4. .off('click',fn)//解绑函数,off('click')解绑该元素的所有单击事件;off()解绑该元素的所有事件
 4. .on('自定义事件',fn)------触发.trigger('自定义事件'[,{数据data:xx}]),,,,click()不传参是trigger的简写也可以触发事件
 5. parent()/next()/prev()
-6. filter('选择器字符串'/fn---this指被遍历到的DOM对象元素)
+6. filter('选择器字符串'/fn(index){return...}---this指被遍历到的DOM对象元素)
 7. map(fn)
 8. first()/last()/slice()
 9. text()/html()

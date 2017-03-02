@@ -23,14 +23,11 @@ document.cookie = "key3=value3; expires(到期)="+d;
 ```
 ---
 
-document.cookie; =>"key=value; key2=value2; key3=value3"  
+document.cookie; =>"key=value; key2=value2; key3=value3"
 -----查看cookie
 
 ---
 
-
-
------删除
 
 
 ## 操作localStorage(大部分浏览器支持,最大5M)

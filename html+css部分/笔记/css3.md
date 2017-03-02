@@ -9,7 +9,8 @@
 ###### box-reflect 倒影 参数
 *   方向     above|below|left|right;  
 * 距离  
-* 		渐变（可选） -webkit-linear-gradient(rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%)  
+* 		渐变（可选）   
+`-webkit-linear-gradient(rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%)  `
 
 
 ## css3新增选择器

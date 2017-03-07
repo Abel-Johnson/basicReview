@@ -127,10 +127,11 @@ v-show   根据值得真假，切换元素的display属性
 v-if          根据值得真假，切换元素会被销毁、重建
 v-else-if  多条件判断，为真则渲染                           
 v-else     条件都不符合渲染
-v-for        基于源数据多次渲染元素或模板块    
-	有诸多限制: 
-	1. 直接修改数据数组(用角标)不会同步到v-for渲染的结构视图上 
+v-for        基于源数据多次渲染元素或模板块{ 直接修改数据数组(用角标)不会同步到v-for渲染的结构视图上 }
 v-model  在表单控件元素上创建双向数据绑定
+	> 	`<input v-model="something">`
+	> 	仅仅是一个语法糖：
+	> 	`<input v-bind:value="something" v-on:input="something = $event.target.value">`
 v-pre       跳过元素和子元素的编译过程                  
 v-once     只渲染一次，随后数据更新不重新渲染
 v-cloak    隐藏未编译的 Mustache语法，css中设置[v-cloak] { display: none } 
@@ -217,7 +218,7 @@ prop 是单向绑定的：当父组件的属性变化时，将传导给子组件
 
 
 
-
+计算后属性只能用到data里的变量数据
 
 
 

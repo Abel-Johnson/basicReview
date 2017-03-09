@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)http://www.miaov.com/index.php/news/newsDetail/newsId/840e4e4ce648c6ff3c10a40158fed0a2 -->
+<html style="overflow: scroll; font-size: 65.4px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="full-screen" content="no">
+    <meta name="x5-orientation" content="portrait">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="x5-fullscreen" content="false">
+	<meta name="description" content="妙味课堂是北京最资深的前端开发培训机构，妙味课堂拥有系统的JavaScript、HTML5、CSS3、移动开发、远程培训等课程，并录制成最系统的前端开发视频教程，妙味课堂推出的VIP前端学习平台已经成为学习氛围最浓郁的前端学习圈">
+	<meta name="keywords" content="JavaScript远程培训,JS远程培训,JavaScript培训,JS培训,JavaScript教程,HTML5培训,CSS3培训,北京前端培训,移动端培训,北京移动端培训,北京JS培训,北京JavaScript培训,北京HTML5培训">
+    
+    <title>妙味新闻－妙味课堂www.miaov.com</title>
+    <link href="./面试1_files/common.css" rel="stylesheet" type="text/css">
+    <script src="./面试1_files/zepto.min.js"></script>
+    <script src="./面试1_files/startMove.js"></script>
+    <script>
+		var html = document.getElementsByTagName("html")[0];
+		
+		var pixclPatio = 1 / window.devicePixelRatio;
+		document.write('<meta name="viewport" content="width=device-width,initial-scale='+pixclPatio+',minimum-scale='+pixclPatio+',maximum-scale='+pixclPatio+',user-scalable=no" />');
+		var html = document.getElementsByTagName('html')[0];
+		var pageWidth = html.getBoundingClientRect().width;
+		html.style.fontSize = pageWidth / 10 + 'px';
+
+    </script><meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=0.5,maximum-scale=0.5,user-scalable=no">
+    <script src="./面试1_files/common.js"></script>
+</head>
+<body style="overflow:scroll; overflow-x:hidden;">
+<link href="./面试1_files/news.css" rel="stylesheet" type="text/css">
+
+<section>
+
+<header>
+    <div class="btn_back"><a href="http://www.miaov.com/index.php/news/newslist">&nbsp;</a></div>
+    <div class="top_logo"><img src="./面试1_files/logo_min.png"></div>
+        <div class="top_header"><a href="http://www.miaov.com/index.php/user/index"><img src="./面试1_files/miaovavatar.jpg"></a></div>
+    </header>
+
+
+<div class="news_title">
+    <h4>2017年第一波JavaScript前端面试题</h4>
+    <p>2017年02月10日</p>
+</div>
+
+<div class="news_content" id="out">
+    <p><code>妙味JS班</code> <code>JS面试题</code></p>
+<hr>
+<p>2017年2月的北京，天气似乎仍然有点凉，春天的温暖尚未到来，但求职的浪潮却已悄然来袭。就在大家摩拳擦掌、积极备战的当下，妙味 JS 讲师们为大家准备了一份小小礼物：</p>
+<h3>《2017年第一波 JavaScript 面试题》- <a href="http://www.miaov.com/">妙味实体班内部培训资料</a></h3>
+<p><img src="./面试1_files/68" alt=""></p>
+<p>说起面试题的收集工作，也并不复杂，几乎都是 <a href="http://miaov.com/index.php/Course/courseList">妙味JS班</a> 学员面试归来给自己的 JS 讲师们提供的。他们在面试时或答的轻松、或答的沉重，在面试结束后，难免要找讲师们讨论一番。而今天，妙味讲师们就把这些经常遇到的 JS 面试题做一番归纳分类，提炼出“考点”和“参考答案”，供大家学习借鉴。</p>
+<p>面试题按类型来分，主要涉及到“技术”与“非技术”两大类，今天我们主要讨论的是“技术类”，在这个大类别下涉及到的子类别有：</p>
+<ul>
+<li>移动 &amp; PC端布局类</li>
+<li>JavaScript 核心基础类</li>
+<li>衍生框架类</li>
+<li>项目应用类</li>
+</ul>
+<p>这四大类别的面试题若按出现频率来划分，则面试时 100% 会问到的题型有：“移动端&amp;PC端布局类、JavaScript 核心基础类”。本次我们选择了这两类中难度更高一些的 “JavaScript 核心基础类” 面试题，给大家进行了分析和解答，供大家面试前准备。</p>
+<h4>特别说明：</h4>
+<p>假如你在面试时被这些题型卡住了，就必须正视自己的知识短板，并且要心悦城服的刻苦钻研、直至学会为止！毕竟想要成为一个合格的 <strong>“WEB前端工程师”</strong>，掌握以下这些 JavaScript 核心的基础知识，才担得上“合格”这两个字，否则就是“冒牌”的哦~</p>
+<hr>
+<p>言归正传，我们来看看妙味 JS 讲师们为大家整理的十五道 JavaScript 核心基础类面试题：</p>
+<h3>一、JavaScript 的 typeof 返回哪些数据类型？</h3>
+<h4>分析：</h4>
+<p>这道题检验的是 JS 基本功，在妙味课堂 JS 基础课程里就有讲，只要对 typeof 运算符是了解的，就没有太大难度。具体在回答的时候，再结合理论知识和编码过程中实际情况进行回答即可。另外，考虑到面试时的严谨性，妙味讲师把 ES2015 中新增的类型也并入回复中，供大家参考。</p>
+<h4>建议回复：</h4>
+<p>首先，JavaScript 中一共有两大数据类型：</p>
+<blockquote>
+<ol>
+<li>基础类型</li>
+<li>引用类型</li>
+</ol>
+</blockquote>
+<ul>
+<li>基础类型包括：Number、String、Boolean、Null、Undefined、Symbol（该类型位 ES2015 中新增类型）</li>
+<li>引用类型包括：Object
+typeof 运算符把类型信息以字符串形式返回，需要注意的是 typeof 返回的类型和 JavaScript 定义的类型有细微的差异。
+typeof 返回七种可能的值：“number”、“string”、“boolean”、“object”、"symbol"、“function”和“undefined”。</li>
+</ul>
+<hr>
+<h3>二、请写出以下运算结果：</h3>
+<pre><code>alert(typeof null);
+alert(typeof undefined);
+alert(typeof NaN);
+alert(NaN == undefined);
+alert(NaN == NaN);
+var str = "123abc";
+alert(typeof str++);
+alert(str);
+</code></pre>
+<h4>分析：</h4>
+<p>这道题与“题目一”是连环扣，当“题目一”回答完后，通过此题再一次强化运算符和数据类型的基本功。</p>
+<h4>建议回复：</h4>
+<p>本题主要是考察 typeof 判断值的类型，它们输出的结果依次是：</p>
+<pre><code>alert(typeof null);  // object
+alert(typeof undefined);  // undefined
+alert(typeof NaN);  // number
+alert(NaN == undefined);  // false
+alert(NaN == NaN);  // false
+var str = "123abc";
+alert(typeof str++);  // number
+alert(str);  // NaN
+</code></pre>
+<hr>
+<h3>三、例举至少 3 种强制类型转换和 2 种隐式类型转换?</h3>
+<h4>分析：</h4>
+<p>类型转换听起来可能有点宽泛，但这道题明确给出了回答的范围，对于听过 JS 实体课的同学来说，这几乎是送分题，因为课上讲师们就明确讲解了类型转换的几种不同形式，假如大家有做好笔记的话~</p>
+<h4>建议回复：</h4>
+<blockquote>
+<p><strong>1. 强制类型转换：</strong>
+明确调用内置函数，强制把一种类型的值转换为另一种类型。强制类型转换主要有：Boolean、Number、String、parseInt、parseFloat</p>
+</blockquote>
+<blockquote>
+<p><strong>2. 隐式类型转换：</strong>
+在使用算术运算符时，运算符两边的数据类型可以是任意的，比如，一个字符串可以和数字相加。之所以不同的数据类型之间可以做运算，是因为 JavaScript 引擎在运算之前会悄悄的把他们进行了隐式类型转换。隐式类型转换主要有：+、–、==、!</p>
+</blockquote>
+<hr>
+<h3>四、JavaScript 的事件流模型都有什么？</h3>
+<h4>分析：</h4>
+<p>事件流模型这个知识点在妙味中级阶段 event 事件章节就有详细讲解，如果已经忘记的朋友，再去看看这个阶段的视频吧。
+题外话：一般纯理论的知识点学起来枯燥（妙味实体班的学员也是如此），但理论的好处在于当遇到问题时，能迅速判断出错的原理所在，从而可以准确迅速的查找问题并精准修复，可以让冗余代码简化到最低、可以不再出了错以后像撞大运般的采用 “试来试去大法” 来修复~</p>
+<h4>建议回复：</h4>
+<blockquote>
+<p><strong>事件流描述的是从页面中接收事件的顺序。</strong>
+DOM 结构是树形结构，当页面中的某一个元素触发了某个一个事件，事件会从最顶层的 window 对象开始，向下传播到目标元素，途径的祖先节点都会触发对应的事件，如果当前节点的该事件绑定了事件处理函数的话，则会执行该函数当事件达到目标元素并执行绑定函数（如果有绑定的话）后，事件又会向上传播到 window 元素，途径的祖先节点都会触发对应的事件（如果绑定事件处理函数的话）</p>
+</blockquote>
+<p><em>——文字好绕口有没有？谁让当初听课画图讲解的时候，你不认真听课却在那儿打瞌睡呢？ ^_^ 继续~</em></p>
+<h5>事件流包含三个阶段：</h5>
+<ul>
+<li>事件捕捉阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
+</ul>
+<blockquote>
+<ol>
+<li>事件捕捉阶段：事件开始由顶层对象触发，然后逐级向下传播，直到目标的元素；</li>
+<li>处于目标阶段：处在绑定事件的元素上；</li>
+<li>事件冒泡阶段：事件由具体的元素先接收，然后逐级向上传播，直到不具体的元素；</li>
+</ol>
+</blockquote>
+<hr>
+<h3>五、BOM 对象有哪些，列举 window 对象？</h3>
+<h4>分析：</h4>
+<p>再次提醒：这题是妙味JS班 BOM 课程的笔记。背下来吧，背不出来的去面壁……</p>
+<h4>建议回复：</h4>
+<blockquote>
+<ol>
+<li>window 对象，是 JS 的最顶层对象，其他的 BOM 对象都是 window 对象的属性；</li>
+<li>location 对象，浏览器当前URL信息；</li>
+<li>navigator 对象，浏览器本身信息；</li>
+<li>screen 对象，客户端屏幕信息；</li>
+<li>history 对象，浏览器访问历史信息；</li>
+</ol>
+</blockquote>
+<hr>
+<h3>六、请简述 AJAX 及基本步骤？</h3>
+<h4>分析：</h4>
+<p>如果说仅仅只会用 AJAX 是基础要求的话，那么听明白讲师课上的细节分析，则是面试加分项之一。对于这种纯概念题，建议面试前再写一遍原生 AJAX 函数的封装过程，一定要在理解的基础上去背，才会在面试时有良好发挥。</p>
+<h4>建议回复：</h4>
+<ul>
+<li>简述 AJAX：AJAX即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</li>
+</ul>
+<blockquote>
+<p><strong>AJAX 基本步骤：</strong></p>
+</blockquote>
+<blockquote>
+<ol>
+<li>初始化ajax对象</li>
+<li>连接地址，准备数据</li>
+<li>发送请求</li>
+<li>接收数据（正在接收，尚未完成）</li>
+<li>接收数据完成</li>
+</ol>
+</blockquote>
+<pre><code>//初始化ajax对象
+var xhr = new XMLHttpRequest();
+//连接地址，准备数据
+xhr.open(“方式”,”地址”,是否为异步);
+//接收数据完成触发的事件
+xhr.onload =function(){}
+//发送数据
+xhr.send();
+</code></pre>
+<hr>
+<h3>七、HTTP 状态消息 200 302 304 403 404 500 分别表示什么？</h3>
+<h4>分析：</h4>
+<p>在听讲师讲解 AJAX 课程的时候，请仔细留意讲师所描述每一个数字背后的含义、以及有可能出现的场景。万一在面试时考官不仅仅只是让你背诵、而是给你一个场景让你做问答题呢？——所以，“带着理解去记忆” 是对付概念题最好的法宝，此外多看看延展的知识点，也是有益无害。</p>
+<h4>建议回复：</h4>
+<blockquote>
+<ol>
+<li>200：请求已成功，请求所希望的响应头或数据体将随此响应返回。</li>
+<li>302：请求的资源临时从不同的 URI 响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在 Cache-Control 或 Expires 中进行了指定的情况下，这个响应才是可缓存的。</li>
+<li>304：如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。304 响应禁止包含消息体，因此始终以消息头后的第一个空行结尾。</li>
+<li>403：服务器已经理解请求，但是拒绝执行它。</li>
+<li>404：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
+<li>500：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。</li>
+</ol>
+</blockquote>
+<hr>
+<h3>八、同步和异步的区别?</h3>
+<h4>分析：</h4>
+<p>又是概念题，又是课上容易打瞌睡的题对不对？看看下面的“建议回复”吧，或许和你们上课的内容有些区别，因为讲师们又重新换了个比喻，把容易让人弄晕的、深入的知识，以举例的形式描述了一遍。温故而知新的体验总是愉悦的，至于能把大家对该知识点的回忆勾起来多少？这就要看大家在妙味学习期间有没有往心里去了。</p>
+<h4>建议回复：</h4>
+<ul>
+<li>首先同步异步于阻塞非阻塞并没有关系。同步异步主要是事情做完以后，如何进行处理、或者说关注的是一种消息通信机制。</li>
+<li>同步的情况下，是由处理消息者自己去等待消息是否被触发；</li>
+<li>而异步的情况下是由触发机制来通知处理消息者；</li>
+</ul>
+<blockquote>
+<p><strong>举例：</strong>
+比如在妙味上课时，你问老师一个问题，这个问题可能需要花费一点时间去思考，这个时候老师可能：</p>
+<ol>
+<li>思考，思考……，好了，有答案了；</li>
+<li>这个问题需要一点时间，你先做点别的，等我想好了，去找你。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>第一种就是同步，第二种就是异步。所以同步异步可以说是对被请求方来说的，被请求者使用什么方式来告知处理结果。</p>
+</blockquote>
+<ul>
+<li>阻塞非阻塞，主要是对于请求者而言的。</li>
+<li>阻塞：发出请求等待结果返回，然后再处理后续的事情；</li>
+<li>非阻塞：发出请求不等待结果返回，可以接着做后续的事情；</li>
+</ul>
+<blockquote>
+<p><strong>举例，还是上一个例子：</strong></p>
+<ol>
+<li>老师在使用同步思考的时候，你可以静静的等待老师给出答案，也可以边做自己的事情边等待老师的回答，当然这时候你需要时刻去关注老师是否已经想好了，在程序中需要进行轮询了。乀(ˉεˉ乀)</li>
+<li>老师使用异步的方式，这个时候老师告诉你可以先去做别的，好了就通知你，那么你可以去做点别的，然后监听事件就行，当然你也可以很轴，我就不做别的！我要一直等着老师“想好了”的事件发生。</li>
+</ol>
+</blockquote>
+<p>所以同步可以是阻塞的也可以是非阻塞的，异步也是如此。</p>
+<hr>
+<h3>九、GET和POST的区别，何时使用POST？</h3>
+<h4>分析：</h4>
+<p>像是数据交互类的概念题在面试时被问到的机率之多，也反应出它在工作中的实用价值。所以没别的，好好学吧，好好背！</p>
+<h4>建议回复：</h4>
+<p><strong>GET和POST的区别：</strong></p>
+<blockquote>
+<p>GET：一般用于查询数据，使用URL传递参数，由于浏览器对地址栏长度有限制，所以对使用get方式所发送信息的数量有限制，同时浏览器会记录（历史记录，缓存）中会保留请求地址的信息，包括地址后面的数据。get 只能发送普通格式（URL 编码格式）的数据。</p>
+</blockquote>
+<blockquote>
+<p>POST：一般用于向服务器发送数据，对所发送的数据的大小理论上是没有限制，浏览器会缓存记录地址，但是不会记录 post 提交的数据。post 可以发送纯文本、URL编码格式、二进制格式的字符串，形式多样。</p>
+</blockquote>
+<blockquote>
+<p>在以下情况中，请使用 POST 请求：</p>
+<ol>
+<li>以提交为目的的请求（类似语义化，get 表示请求，post 表示提交）；</li>
+<li>发送私密类数据（用户名、密码）（因为浏览器缓存记录特性）；</li>
+<li>向服务器发送大量数据（数据大小限制区别）；</li>
+<li>上传文件图片时（数据类型区别）；</li>
+</ol>
+</blockquote>
+<hr>
+<h3>十、 AJAX 的局限性?</h3>
+<h4>分析：</h4>
+<p>刚刚上面有道题还分析了 AJAX 的原理步骤啥的，现在又冒出来个局限性？如果你仅仅只是知道怎么用它，那在看到这个题应该是一脸懵逼了……</p>
+<h4>建议回复：</h4>
+<blockquote>
+<ol>
+<li>AJAX 不支持浏览器 back 按钮。</li>
+<li>安全问题 AJAX 暴露了与服务器交互的细节。</li>
+<li>对搜索引擎的支持比较弱。不会执行你的 JS 脚本，只会操作你的网页源代码；</li>
+<li>跨域请求有一定限制。解决方式：jsonp；</li>
+</ol>
+</blockquote>
+<hr>
+<h3>十一、new 操作符具体干了什么呢?</h3>
+<h4>分析：</h4>
+<p>原理概念题，上课好好听、做好笔记、好好理解……啦啦啦~</p>
+<h4>建议回复：</h4>
+<p>当使用 new 操作符调用构造函数，函数实际会经历如下步骤：</p>
+<blockquote>
+<ol>
+<li>创建一个新对象；</li>
+<li>把函数中上下文（作用域）对象this指向该对象；</li>
+<li>执行代码，通过this给新对象添加属性或方法；</li>
+<li>返回对象；</li>
+</ol>
+</blockquote>
+<hr>
+<h3>十二、null 和 undefined 的区别？</h3>
+<h4>分析：</h4>
+<p>经典的概念题，要回答好的确需要功底扎实。</p>
+<h4>建议回复：</h4>
+<ul>
+<li>
+<p>null： null表示空值，转为数值时为0；</p>
+</li>
+<li>
+<p>undefined：undefined表示"缺少值"，就是此处应该有一个值，但是还没有定义。</p>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>变量被声明了，但没有赋值时，就等于undefined。</li>
+<li>对象没有赋值的属性，该属性的值为undefined。</li>
+<li>函数没有返回值时，默认返回undefined。</li>
+</ol>
+</blockquote>
+<hr>
+<h3>十三、JavaScript 原型，原型链 ? 有什么特点？</h3>
+<h4>分析：</h4>
+<p>不分析了，全是妙味实体班上课讲的东西。。。ㄟ(▔,▔)ㄏ</p>
+<h4>建议回复：</h4>
+<blockquote>
+<p><strong>JavaScript 原型：</strong>
+每创建一个函数，函数上都有一个属性为 prototype，它的值是一个对象。 这个对象的作用在于当使用函数创建实例的时候，那么这些实例都会共享原型上的属性和方法。</p>
+</blockquote>
+<blockquote>
+<p><strong>原型链：</strong>
+在 JavaScript 中，每个对象都有一个指向它的原型（prototype）对象的内部链接（proto）。这个原型对象又有自己的原型，直到某个对象的原型为 null 为止（也就是不再有原型指向）。这种一级一级的链结构就称为原型链（prototype chain）。
+当查找一个对象的属性时，JavaScript 会向上遍历原型链，直到找到给定名称的属性为止;到查找到达原型链的顶部（Object.prototype），仍然没有找到指定的属性，就会返回 undefined。</p>
+</blockquote>
+<hr>
+<h3>十四、实现对数组进行乱序</h3>
+<h4>分析：</h4>
+<p>这道题检验了数组的 sort() 方法，因为是乱序，所以还需要用到 Math.random() 产生随机数，打乱排序规律！——别怪我啰嗦，你们就说实体班课上有没有讲吧？！</p>
+<h4>建议回复：</h4>
+<p>在写代码前，先把实现原理介绍一下，然后再开始写代码：</p>
+<pre><code>var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var sign = 1; 
+a.sort(function(a, b) {
+    return Math.random() - 0.5
+});
+</code></pre>
+<hr>
+<h3>十五、实现一个函数 clone()，可以对 JavaScript 中的5种主要的数据类型（包括 Number、String、Object、Array、Boolean）进行值复制。</h3>
+<h4>分析：</h4>
+<p>这道题考察了以下知识点：</p>
+<blockquote>
+<ol>
+<li>使用 typeof 判断值得类型；</li>
+<li>使用 toString 区分数组和对象；</li>
+<li>递归函数的使用；</li>
+</ol>
+</blockquote>
+<h4>建议回复：</h4>
+<pre><code>function clone(obj) {
+    //判断是对象，就进行循环复制
+    if (typeof obj === 'object' &amp;&amp; typeof obj !== 'null') {
+        // 区分是数组还是对象，创建空的数组或对象
+        var o = Object.prototype.toString.call(obj).slice(8, -1) === "Array" ? [] : {};
+        for (var k in obj) {
+            // 如果属性对应的值为对象，则递归复制
+            if(typeof obj[k] === 'object' &amp;&amp; typeof obj[k] !== 'null'){
+                o[k] = clone(obj[k])
+            }else{
+                o[k] = obj[k];
+            }
+        }
+    }else{ //不为对象，直接把值返回
+        return obj;
+    }
+    return o;
+}
+</code></pre>
+<hr>
+<p>假如以上面试题由你来做的话，能达到及格的小伙伴们举个爪看看？
+大家还碰到哪些原生的 JS 面试题表示困惑了？不如拿出来和大家一起分享讨论吧~</p>
+<p>有疑惑的同学，就在这帖子下留言吧~~</p>
+<hr>
+<ul>
+<li>课程咨询QQ：2852509866、2852509867、2852509868</li>
+<li>课程咨询电话：010-57269690</li>
+<li>客服在线时间：周一至周五 9:30-18:00 周六至周日 10:00-17:00</li>
+</ul>
+<p>打开微信扫描二维码，用手机看视频：</p>
+<p><img src="./面试1_files/77" alt=""></p>
+</div>
+
+<footer>&nbsp;</footer>
+
+<div class="loading">
+    <p><img style="display: inline-block;" src="./面试1_files/load.gif" alt="">加载中...</p>
+    <p>加载完毕</p>
+</div>
+
+<!--<div class="createMessage">
+<div class="normail_title"><i class="titicon_message"></i><span>发表评论</span></div>
+<textarea class="createText" id="message" placeholder="请输入内容："></textarea>
+</div>
+
+<div class="btn"><a href="javascript:;" id="commentBtn" class="red">发表评论</a></div>-->
+
+
+</section>
+
+<script src="./面试1_files/nav.js"></script>
+
+<nav>
+    <div class="nav_list">
+        <ul>
+            <li><a href="http://www.miaov.com/index.php/index/index">        <i class="index"></i>      <span>首页</span>   </a></li>
+            <li><a href="http://www.miaov.com/index.php/Course/courseList">  <i class="course"></i>     <span>课程</span>   </a></li>
+            <li style="display: none;"><a href="http://2017.miaov.com/study/show/index"> <i class="study"></i> <span>视频</span>   </a></li>
+            <li style="display: none;"><a href="http://2017.miaov.com/question/show/index"> <i class="question"></i> <span>问答</span>  </a></li>
+            <li><a href="http://www.miaov.com/index.php/example/exampleList"><i class="member_show"></i><span>学员作品</span></a></li>
+            <li><a href="http://www.miaov.com/index.php/about/index">        <i class="about"></i>      <span>关于妙味</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    isWeiXin();
+    function isWeiXin(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            $('.nav_list .study').parents('li').css('display','block');
+            $('.nav_list .question').parents('li').css('display','block');
+        }else{
+            $('.nav_list .study').parents('li').css('display','none');
+            $('.nav_list .question').parents('li').css('display','none');
+        }
+    }
+</script>
+</body></html>

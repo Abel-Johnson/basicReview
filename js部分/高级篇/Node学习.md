@@ -106,7 +106,7 @@ module.exports = xxx;
 
 ## 全局对象(global)
 
-#### __filename/__dirname
+#### __filename/__dirname(当前js文件/文件夹的)
 #### 定时器
 #### console,向标准输出流或标准错误流输出字符
 #### procss
@@ -117,6 +117,9 @@ module.exports = xxx;
 - uncaughtException
 - signal
 
+一些属性:
+***argv***
+argv 属性返回一个数组，由命令行执行脚本时的各个参数组成。它的第一个成员总是node，第二个成员是脚本文件名，其余成员是脚本文件的参数。
        
 http://www.runoob.com/nodejs/nodejs-global-object.html
 
@@ -163,6 +166,15 @@ http://www.runoob.com/nodejs/nodejs-global-object.html
 var params = **url**.parse(request.url,true).query;---获取到包含请求数据键值对的参数对象
 #### post: node.js 默认是不会解析请求体的，当你需要的时候，需要手动来做。
 
+```javascript
+req.on('data',function(chunk) {
+        post+=chunk;
+    });
+
+    req.on('end',function() {
+        post = querystring.parse(post);
+     ...
+```
 ## TIPS
 node中的相对地址(./)都是相对于项目地址而言的
 

@@ -98,3 +98,13 @@ const app = new Vue({
 * modifiers: 一个包含修饰符的对象。 例如： v-my-directive.foo.bar, 修饰符对象 modifiers 的值是 { foo: true, bar: true }。
 * vnode: Vue 编译生成的虚拟节点，查阅 VNode API 了解更多详情。
 * oldVnode: 上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。
+
+
+响应式原理: 
+![](http://cn.vuejs.org/images/data.png)
+
+数据在vue对象实例化的过程中,会通过es5的objectdefineproperty属性添加getter和setter
+同时vuejs会对模板做编译,看到指令后解析生成一个指令对象,每个指令对象会关联一个watcher
+
+取数据的时候会触发getter,会把依赖收集到watcher里
+改变数据的时候,
